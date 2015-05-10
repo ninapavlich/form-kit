@@ -96,7 +96,7 @@
             var minDate = $(input).attr('data-min-date');
 
             if(isDatePicker){
-                console.log("use date picker")
+                // console.log("use date picker")
                 $(input).datetimepicker({
                     timepicker:false,
                     minDate:minDate,
@@ -104,14 +104,14 @@
                     startDate:startDate
                 });
             }else if(isDateTimePicker){
-                console.log("use date time picker")
+                // console.log("use date time picker")
                 $(input).datetimepicker({
                     minDate:minDate,
                     maxDate:maxDate,
                     startDate:startDate
                 });
             }else if(isTimePicker){
-                console.log("use time picker")
+                // console.log("use time picker")
                 $(input).datetimepicker({
                     datepicker:false,
                     format:'H:i'

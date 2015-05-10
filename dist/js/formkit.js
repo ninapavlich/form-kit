@@ -6112,18 +6112,39 @@ window.ParsleyValidator.addValidator(
     
             this.oFReader = new FileReader();
             this.addListeners();         
-            this.render();
+            this.renderInitialValue();
         },
         
-        render: function() {
+        renderInitialValue: function() {
             //Update view
-            var value = $(this.element).val();
-            console.log("file input value: "+value+" TODO...");
-
-        
+            var value = $(this.element).attr("value");
+            var hasValue = (typeof value !== typeof undefined);
+            if(hasValue){
+                var filePath = $(this.element).attr("data-file-path");
+                var full_source = filePath+value;
+                this.loadAndPreview(full_source);
+            }            
         },
-        renderPreview: function(src){
-            var isImage = src.indexOf('image') >= 0 || src.toLowerCase().indexOf('gif') >= 0 || src.toLowerCase().indexOf('jpg') >= 0 || src.toLowerCase().indexOf('jpeg') >= 0 || src.toLowerCase().indexOf('png') >= 0;
+        loadAndPreview: function(url){
+            var parent = this;
+            var xhr = $.ajax({
+                url: url, 
+                type: 'get',
+                success: function(data, textStatus, request) {
+                    
+                    //Block invalid header response types
+                    var content_type = request.getResponseHeader('content-type');
+                    parent.renderPreview(url, content_type);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {}
+            });
+        },
+        renderNewValue: function(src){
+            var content_type = this.element.files[0].type;
+            this.renderPreview(src, content_type);
+        },
+        renderPreview: function(src, content_type){
+            var isImage = content_type.indexOf('image') >= 0;
             var isData = src.indexOf('data:') >= 0;
             var filename = this.getCurrentFilename()
 
@@ -6138,6 +6159,7 @@ window.ParsleyValidator.addValidator(
             }else{                
                 var preview = '<a href="'+src+'">'+filename+'</a>';
             }
+
             $(this.previewContainer).html(preview);
 
         },
@@ -6147,7 +6169,7 @@ window.ParsleyValidator.addValidator(
             return previewContainer;
         },
         getCurrentFilename: function(){
-            var filename = $(this.element).val();
+            var filename = $(this.element).attr("value");
             if(filename.indexOf('\\') >= 0){
                 var pieces = filename.split("\\");    
             }else{
@@ -6164,7 +6186,7 @@ window.ParsleyValidator.addValidator(
             });
             this.oFReader.onload = function (event) {
                 var result_src = event.target.result;
-                parent.renderPreview(result_src);
+                parent.renderNewValue(result_src);
             };
         },
 
@@ -6363,7 +6385,7 @@ window.ParsleyValidator.addValidator(
             var minDate = $(input).attr('data-min-date');
 
             if(isDatePicker){
-                console.log("use date picker")
+                // console.log("use date picker")
                 $(input).datetimepicker({
                     timepicker:false,
                     minDate:minDate,
@@ -6371,14 +6393,14 @@ window.ParsleyValidator.addValidator(
                     startDate:startDate
                 });
             }else if(isDateTimePicker){
-                console.log("use date time picker")
+                // console.log("use date time picker")
                 $(input).datetimepicker({
                     minDate:minDate,
                     maxDate:maxDate,
                     startDate:startDate
                 });
             }else if(isTimePicker){
-                console.log("use time picker")
+                // console.log("use time picker")
                 $(input).datetimepicker({
                     datepicker:false,
                     format:'H:i'
