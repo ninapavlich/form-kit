@@ -22,4 +22,4 @@ This is a repo of form field templates and integration code to use all my favori
 *Loudev Horizontal Multiselect* http://loudev.com/
 *Parsely JS Validation* http://parsleyjs.org/
 *xdsoft Date and Timepicker* http://xdsoft.net/jqplugins/datetimepicker/
-*JQuery UI* https://jqueryui.com
+*rangeslider.js Polyfill* http://andreruffert.github.io/rangeslider.js/
