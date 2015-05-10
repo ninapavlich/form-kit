@@ -36,7 +36,7 @@
         render: function() {
             //Update view
             var value = $(this.element).val();
-            console.log("file input value: "+value);
+            console.log("file input value: "+value+" TODO...");
 
         
         },
@@ -82,7 +82,6 @@
             });
             this.oFReader.onload = function (event) {
                 var result_src = event.target.result;
-                console.log("RESULT SRC: "+result_src)
                 parent.renderPreview(result_src);
             };
         },

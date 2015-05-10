@@ -48,6 +48,8 @@
         initValidation: function(){
             // $(this.element).parsley();
             // console.log("initialize parsley")
+
+            $(this.element).garlic();
         },
         // initTexts: function(){
         //     var texts = $("textarea, input[type=text]");

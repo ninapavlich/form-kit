@@ -1,68 +1,3 @@
-/* line 5, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-/* line 22, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-html {
-  line-height: 1;
-}
-
-/* line 24, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-ol, ul {
-  list-style: none;
-}
-
-/* line 26, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* line 28, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-/* line 30, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-q, blockquote {
-  quotes: none;
-}
-/* line 103, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-/* line 32, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-a img {
-  border: none;
-}
-
-/* line 116, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
 /* core components: grids, colors, fonts, media queries, etc. */
 /* line 1, ../../sass/form/_buttons.scss */
 button, a.button, input[type=button], input[type=submit] {
@@ -123,14 +58,12 @@ button:disabled, a.button:disabled, input[type=button]:disabled, input[type=subm
 
 /* line 1, ../../sass/form/_fields.scss */
 form {
-  padding: 1em 2em;
-  font-size: 16px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 8, ../../sass/form/_fields.scss */
+/* line 4, ../../sass/form/_fields.scss */
 .form-field {
   display: block;
   margin: 1em 0;
@@ -151,13 +84,13 @@ form {
 .form-field:after {
   clear: both;
 }
-/* line 13, ../../sass/form/_fields.scss */
+/* line 9, ../../sass/form/_fields.scss */
 .form-field * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 19, ../../sass/form/_fields.scss */
+/* line 15, ../../sass/form/_fields.scss */
 .form-field textarea,
 .form-field input[type=text],
 .form-field input[type=email],
@@ -178,11 +111,11 @@ form {
   border-color: #000;
   outline: none;
 }
-/* line 27, ../../sass/form/_fields.scss */
+/* line 23, ../../sass/form/_fields.scss */
 .form-field textarea {
   height: 100px;
 }
-/* line 30, ../../sass/form/_fields.scss */
+/* line 26, ../../sass/form/_fields.scss */
 .form-field input,
 .form-field textarea,
 .form-field select,
@@ -192,43 +125,43 @@ form {
   margin-top: 0.5em;
   width: 100%;
 }
-/* line 39, ../../sass/form/_fields.scss */
+/* line 35, ../../sass/form/_fields.scss */
 .form-field.form-field.form-field-type-select-buttons label:first-child {
   margin-bottom: 0.5em;
   width: 100%;
 }
-/* line 43, ../../sass/form/_fields.scss */
+/* line 39, ../../sass/form/_fields.scss */
 .form-field.form-field-type-file-field .preview {
   margin-top: 0.5em;
 }
-/* line 46, ../../sass/form/_fields.scss */
+/* line 42, ../../sass/form/_fields.scss */
 .form-field.form-field-type-file-field .preview img {
   max-width: 100%;
 }
-/* line 51, ../../sass/form/_fields.scss */
+/* line 47, ../../sass/form/_fields.scss */
 .form-field .form-field-type-select-buttons input,
 .form-field input[type=checkbox],
 .form-field input[type=radio] {
   width: auto;
 }
-/* line 64, ../../sass/form/_fields.scss */
+/* line 60, ../../sass/form/_fields.scss */
 .form-field.form-field-type-select-multiple-autosuggest label, .form-field.form-field-type-select-multiple-checkboxes label, .form-field.form-field-type-select-multiple-horizontal label, .form-field.form-field-type-select-radio-buttons label, .form-field.form-field-type-select-buttons label, .form-field.form-field-type-boolean-checkboxes label, .form-field.form-field-type-boolean-toggle label {
   display: block;
 }
-/* line 73, ../../sass/form/_fields.scss */
+/* line 69, ../../sass/form/_fields.scss */
 .form-field.form-field-type-boolean-checkboxes input, .form-field.form-field-type-select-multiple-checkboxes input, .form-field.form-field-type-select-radio-buttons input, .form-field.form-field-type-select-buttons input {
   float: left;
   margin: 0.3em 0.5em 0 0;
 }
-/* line 78, ../../sass/form/_fields.scss */
+/* line 74, ../../sass/form/_fields.scss */
 .form-field.form-field-type-boolean-toggle, .form-field.form-field-type-select-buttons {
   overflow: auto;
 }
-/* line 84, ../../sass/form/_fields.scss */
+/* line 80, ../../sass/form/_fields.scss */
 .form-field.form-field-type-boolean-toggle label, .form-field.form-field-type-select-buttons label {
   display: inline-block;
 }
-/* line 85, ../../sass/form/_fields.scss */
+/* line 81, ../../sass/form/_fields.scss */
 .form-field.form-field-type-boolean-toggle label span, .form-field.form-field-type-select-buttons label span {
   display: inline-block;
   margin-bottom: 1px;
@@ -238,52 +171,47 @@ form {
   cursor: pointer;
   cursor: hand;
 }
-/* line 92, ../../sass/form/_fields.scss */
+/* line 88, ../../sass/form/_fields.scss */
 .form-field.form-field-type-boolean-toggle label span:hover, .form-field.form-field-type-boolean-toggle label span:focus, .form-field.form-field-type-select-buttons label span:hover, .form-field.form-field-type-select-buttons label span:focus {
   border-color: #000;
   background: rgba(255, 255, 255, 0.5);
 }
-/* line 100, ../../sass/form/_fields.scss */
+/* line 96, ../../sass/form/_fields.scss */
 .form-field.form-field-type-boolean-toggle label:first-child, .form-field.form-field-type-select-buttons label:first-child {
   display: block;
 }
-/* line 104, ../../sass/form/_fields.scss */
+/* line 100, ../../sass/form/_fields.scss */
 .form-field.form-field-type-boolean-toggle input, .form-field.form-field-type-select-buttons input {
   display: none;
   position: absolute;
   top: -100px;
 }
-/* line 108, ../../sass/form/_fields.scss */
+/* line 104, ../../sass/form/_fields.scss */
 .form-field.form-field-type-boolean-toggle input:active + span, .form-field.form-field-type-select-buttons input:active + span {
   background-color: #474540;
   color: #fff;
 }
-/* line 111, ../../sass/form/_fields.scss */
+/* line 107, ../../sass/form/_fields.scss */
 .form-field.form-field-type-boolean-toggle input:checked + span, .form-field.form-field-type-select-buttons input:checked + span {
   background-color: #474540;
   color: #fff;
 }
-/* line 120, ../../sass/form/_fields.scss */
+/* line 116, ../../sass/form/_fields.scss */
 .form-field .rangeslider {
   margin-top: 0.5em;
 }
-/* line 122, ../../sass/form/_fields.scss */
+/* line 118, ../../sass/form/_fields.scss */
 .form-field .rangeslider .rangeslider__fill {
   background: #474540;
 }
-/* line 129, ../../sass/form/_fields.scss */
+/* line 125, ../../sass/form/_fields.scss */
 .form-field .icon {
   display: inline-block;
   position: relative;
   top: -20px;
   left: 5px;
 }
-/* line 136, ../../sass/form/_fields.scss */
+/* line 132, ../../sass/form/_fields.scss */
 .form-field.has-icon input {
   padding-left: 22px;
-}
-
-/* line 1, ../../sass/form/_skin.scss */
-.form-field {
-  max-width: 500px;
 }

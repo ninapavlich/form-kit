@@ -129,12 +129,12 @@ module.exports = function(grunt) {
                         dest: 'js/vendor/',
                         expand: true
                     },
-                    {
-                        cwd: 'bower_components/parsleyjs/dist/',
-                        src: 'parsley.remote.js',
-                        dest: 'js/vendor/',
-                        expand: true
-                    },
+                    // {
+                    //     cwd: 'bower_components/parsleyjs/dist/',
+                    //     src: 'parsley.remote.js',
+                    //     dest: 'js/vendor/',
+                    //     expand: true
+                    // },
                     {
                         cwd: 'bower_components/image-picker/image-picker/',
                         src: 'image-picker.css',
@@ -171,12 +171,30 @@ module.exports = function(grunt) {
                         dest: 'compiled/compass/',
                         expand: true
                     },
+                    // {
+                    //     cwd: 'bower_components/jquery-ui/',
+                    //     src: 'jquery-ui.js',
+                    //     dest: 'js/vendor/',
+                    //     expand: true
+                    // },
                     {
-                        cwd: 'bower_components/jquery-ui/',
-                        src: 'jquery-ui.js',
+                        cwd: 'bower_components/garlicjs/',
+                        src: 'garlic.js',
                         dest: 'js/vendor/',
                         expand: true
-                    }
+                    },
+                    // {
+                    //     cwd: 'bower_components/tag-it/js/',
+                    //     src: 'tag-it.js',
+                    //     dest: 'js/vendor/',
+                    //     expand: true
+                    // },
+                    // {
+                    //     cwd: 'bower_components/tag-it/css/',
+                    //     src: 'jquery.tagit.css',
+                    //     dest: 'compiled/compass/',
+                    //     expand: true
+                    // }
                 ]
             },
             scripts: {
