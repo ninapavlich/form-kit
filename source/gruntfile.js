@@ -195,6 +195,12 @@ module.exports = function(grunt) {
                     //     dest: 'compiled/compass/',
                     //     expand: true
                     // }
+                    {
+                        cwd: 'bower_components/jquery-placeholder/',
+                        src: 'jquery.placeholder.js',
+                        dest: 'js/vendor/',
+                        expand: true
+                    }
                 ]
             },
             scripts: {

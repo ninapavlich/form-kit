@@ -35,7 +35,8 @@
             this.initFiles();
             this.initRangeSliders();
             this.initDates();
-            this.initSelects();   
+            this.initSelects();  
+            this.initPlaceholderShims(); 
             
             $(this.element).inputPrefix();
             
@@ -188,6 +189,11 @@
                 }
             }
             
+        },
+        initPlaceholderShims: function(){
+            if(Modernizr.input.placeholder==false){
+                $(this.element).find('input, textarea').placeholder();
+            }
         },
         render: function() {
             //Update view

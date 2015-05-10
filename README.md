@@ -17,9 +17,15 @@ Requires JQuery and Modernizr
 
 This is a repo of form field templates and integration code to use all my favorite form field widgets to improve usability.
 
+**Validation, Shims and Libs**
+- **Parsely JS Validation** http://parsleyjs.org/
+- **Garlic JS** https://github.com/guillaumepotier/garlic.js
+- **Placeholder Shim** https://github.com/mathiasbynens/jquery-placeholder
+
+**Widgets**
 - **Image Picker** http://rvera.github.io/image-picker/
 - **Better Selector** http://harvesthq.github.io/chosen/
 - **Loudev Horizontal Multiselect** http://loudev.com/
-- **Parsely JS Validation** http://parsleyjs.org/
 - **xdsoft Date and Timepicker** http://xdsoft.net/jqplugins/datetimepicker/
+- **Tag It** https://github.com/aehlke/tag-it
 - **rangeslider.js Polyfill** http://andreruffert.github.io/rangeslider.js/

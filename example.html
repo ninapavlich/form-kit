@@ -24,14 +24,20 @@
                 font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
 
             }
+            .container{
+               max-width:600px;
+               margin:auto; 
+            }
             h1{
-                max-width:600px;
+                
                 font-weight: bold;
                 font-size:24px;
                 margin:1em auto;
             }
+            h2{
+                font-size:18px;
+            }
             ul.libs{
-                width:600px;
                 margin:1em auto;
             }
             strong{
@@ -40,8 +46,6 @@
 
             code{
                 font-family: Consolas, Monaco, monospace;
-                width:600px;
-                margin:auto;
                 padding: 15px;
                 white-space: pre;
                 overflow: auto;
@@ -53,12 +57,8 @@
                 -webkit-border-radius: 10px;
                 -moz-border-radius: 10px;
                 border-radius: 10px;
-
             }
-            form{
-                width:600px;
-                margin:auto;
-            }
+            
 
         </style>
     </head>
@@ -67,229 +67,235 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-        <pre><code>
+        
+
+        <div class="container">
+            <pre><code>
     &lt;script&gt;
     $('form').formKit({});
     &lt;/script&gt;
         </code></pre>
+            <h1>Awwww yeah</h1>
 
-        <h1>Awwww yeah</h1>
+            <h2>Validation, Shims and Libs</h2>
+            <ul class="libs">
+                <li><strong>Parsely JS</strong> http://parsleyjs.org/</li>
+                <li><strong>Garlic JS</strong> https://github.com/guillaumepotier/garlic.js</li>            
+                <li><strong>Placeholder Shim</strong> https://github.com/mathiasbynens/jquery-placeholder</li>                                     
+            </ul>
 
-        <ul class="libs">
-            <li><strong>Image Picker</strong> http://rvera.github.io/image-picker/</li>
-            <li><strong>Harvest Chosen</strong> http://harvesthq.github.io/chosen/</li>
-            <li><strong>Loudev Horizontal Multiselect</strong> http://loudev.com/</li>
-            <li><strong>Parsely JS</strong> http://parsleyjs.org/</li>
-            <li><strong>xdsoft</strong> http://xdsoft.net/jqplugins/datetimepicker/</li>
-            <li><strong>Garlic JS</strong> https://github.com/guillaumepotier/garlic.js</li>            
-            <li><strong>Tag It</strong> https://github.com/aehlke/tag-it</li>            
-            <li><strong>JQuery UI</strong> https://jqueryui.com</li>            
-            <li><strong>rangeslider.js Polyfill</strong> http://andreruffert.github.io/rangeslider.js/</li>            
+            <h2>Widgets</h2>
+            <ul class="libs">
+                <li><strong>Image Picker</strong> http://rvera.github.io/image-picker/</li>
+                <li><strong>Harvest Chosen</strong> http://harvesthq.github.io/chosen/</li>
+                <li><strong>Loudev Horizontal Multiselect</strong> http://loudev.com/</li>
+                <li><strong>xdsoft</strong> http://xdsoft.net/jqplugins/datetimepicker/</li>
+                <li><strong>Tag It</strong> https://github.com/aehlke/tag-it</li>    
+                <li><strong>JQuery UI</strong> https://jqueryui.com</li>            
+                <li><strong>rangeslider.js Polyfill</strong> http://andreruffert.github.io/rangeslider.js/</li>
+            </ul>
 
-        </ul>
+            <form action="/submit/path/" enctype="multipart/form-data" method="post" data-parsley-validate>
+                <input name="csrfmiddlewaretoken" type="hidden" value=""> 
 
-        <form action="/submit/path/" enctype="multipart/form-data" method="post" data-parsley-validate>
-            <input name="csrfmiddlewaretoken" type="hidden" value=""> 
+                <div class="form-field form-field-type-text-area">
+                    <label for="id_form_field_contact-us-multi-line-text">Multi Line Text</label> <span class="secondary-label">with a secondary label</span> 
+                    <textarea class="" data-placeholder="enter text here" id="id_form_field_contact-us-multi-line-text" 
+                    data-parsley-minlength="10" data-parsley-minlength-message = "Come on! You need to enter at least a 20 caracters long comment.."
+                    data-parsley-maxlength="200" data-parsley-minlength-message = "Come on! You need to enter at least a 20 caracters long comment.."
+                    name="form_field_contact-us-multi-line-text" placeholder="enter text here"></textarea> <span class="help-text">do you need help?</span>
+                </div>
 
-            <div class="form-field form-field-type-text-area">
-                <label for="id_form_field_contact-us-multi-line-text">Multi Line Text</label> <span class="secondary-label">with a secondary label</span> 
-                <textarea class="" data-placeholder="enter text here" id="id_form_field_contact-us-multi-line-text" 
-                data-parsley-minlength="10" data-parsley-minlength-message = "Come on! You need to enter at least a 20 caracters long comment.."
-                data-parsley-maxlength="200" data-parsley-minlength-message = "Come on! You need to enter at least a 20 caracters long comment.."
-                name="form_field_contact-us-multi-line-text" placeholder="enter text here"></textarea> <span class="help-text">do you need help?</span>
-            </div>
+                <div class="form-field form-field-type-text-field">
+                    <label for="id_form_field_contact-us-single-line-field">Single Line Field</label> <span class="secondary-label">secondary label here</span> <input data-placeholder="placeholder here" id="id_form_field_contact-us-single-line-field" name="form_field_contact-us-single-line-field" placeholder="placeholder here" type="email" value=""> <span class="help-text">help text here</span>
+                </div>
 
-            <div class="form-field form-field-type-text-field">
-                <label for="id_form_field_contact-us-single-line-field">Single Line Field</label> <span class="secondary-label">secondary label here</span> <input data-placeholder="placeholder here" id="id_form_field_contact-us-single-line-field" name="form_field_contact-us-single-line-field" placeholder="placeholder here" type="email" value=""> <span class="help-text">help text here</span>
-            </div>
+                <div class="form-field form-field-type-text-field">
+                    <label for="id_form_field_contact-us-repeat-single-line-field">Repeat Single Line Field</label> <input id="id_form_field_contact-us-repeat-single-line-field" name="form_field_contact-us-repeat-single-line-field" type="text" value="">
+                </div>
 
-            <div class="form-field form-field-type-text-field">
-                <label for="id_form_field_contact-us-repeat-single-line-field">Repeat Single Line Field</label> <input id="id_form_field_contact-us-repeat-single-line-field" name="form_field_contact-us-repeat-single-line-field" type="text" value="">
-            </div>
+                <div class="form-field form-field-type-boolean-checkboxes">
+                    <label for="id_form_field_contact-us-option"><input id="id_form_field_contact-us-option" name="form_field_contact-us-option" type="checkbox"> <span>Option?</span></label> <span class="secondary-label">secondary label</span> <span class="help-text">help text</span>
+                </div>
 
-            <div class="form-field form-field-type-boolean-checkboxes">
-                <label for="id_form_field_contact-us-option"><input id="id_form_field_contact-us-option" name="form_field_contact-us-option" type="checkbox"> <span>Option?</span></label> <span class="secondary-label">secondary label</span> <span class="help-text">help text</span>
-            </div>
+                <div class="form-field form-field-type-boolean-checkboxes">
+                    <label for="id_form_field_contact-us-option-you-must-click"><input id="id_form_field_contact-us-option-you-must-click" name="form_field_contact-us-option-you-must-click" type="checkbox"> <span>Option you must click</span></label>
+                </div>
 
-            <div class="form-field form-field-type-boolean-checkboxes">
-                <label for="id_form_field_contact-us-option-you-must-click"><input id="id_form_field_contact-us-option-you-must-click" name="form_field_contact-us-option-you-must-click" type="checkbox"> <span>Option you must click</span></label>
-            </div>
+                <div class="form-field form-field-type-boolean-toggle">
+                    <label for="id_form_field_contact-us-show-this-boolean-as-buttons"><input id="id_form_field_contact-us-show-this-boolean-as-buttons" name="form_field_contact-us-show-this-boolean-as-buttons" type="checkbox"> <span>Toggle Button</span></label>
+                </div>
 
-            <div class="form-field form-field-type-boolean-toggle">
-                <label for="id_form_field_contact-us-show-this-boolean-as-buttons"><input id="id_form_field_contact-us-show-this-boolean-as-buttons" name="form_field_contact-us-show-this-boolean-as-buttons" type="checkbox"> <span>Toggle Button</span></label>
-            </div>
+                <div class="form-field form-field-type-select-dropdown">
+                    <label for="id_form_field_contact-us-choose-an-item">Choose an item</label> 
+                    <select id="id_form_field_contact-us-choose-an-item" name="form_field_contact-us-choose-an-item"  class="field-type-select-dropdown">
+                        <option value="Yes">
+                            Yes
+                        </option>
 
-            <div class="form-field form-field-type-select-dropdown">
-                <label for="id_form_field_contact-us-choose-an-item">Choose an item</label> 
-                <select id="id_form_field_contact-us-choose-an-item" name="form_field_contact-us-choose-an-item"  class="field-type-select-dropdown">
-                    <option value="Yes">
-                        Yes
-                    </option>
+                        <option value="No">
+                            No
+                        </option>
 
-                    <option value="No">
-                        No
-                    </option>
+                        <option value="Maybe">
+                            Maybe
+                        </option>
+                    </select>
+                </div>
 
-                    <option value="Maybe">
-                        Maybe
-                    </option>
-                </select>
-            </div>
+                <div class="form-field form-field-type-select-images">
+                    <label for="id_form_field_contact-us-select-images">Select An Image!</label> 
 
-            <div class="form-field form-field-type-select-images">
-                <label for="id_form_field_contact-us-select-images">Select An Image!</label> 
+                    <select id="id_form_field_contact-us-select-images" name="form_field_contact-us-select-images" class="field-type-select-images">
+                        <option data-img-src="http://placekitten.com/220/200" value="1">Cute Kitten 1</option>
+                        <option data-img-src="http://placekitten.com/180/200" value="2">Cute Kitten 2</option>
+                        <option data-img-src="http://placekitten.com/130/200" value="3">Cute Kitten 3</option>
+                        <option data-img-src="http://placekitten.com/270/200" value="4">Cute Kitten 4</option>
+                    </select>
+                </div>
 
-                <select id="id_form_field_contact-us-select-images" name="form_field_contact-us-select-images" class="field-type-select-images">
-                    <option data-img-src="http://placekitten.com/220/200" value="1">Cute Kitten 1</option>
-                    <option data-img-src="http://placekitten.com/180/200" value="2">Cute Kitten 2</option>
-                    <option data-img-src="http://placekitten.com/130/200" value="3">Cute Kitten 3</option>
-                    <option data-img-src="http://placekitten.com/270/200" value="4">Cute Kitten 4</option>
-                </select>
-            </div>
+                <div class="form-field form-field-type-select-radio-buttons">
+                    <label for="id_form_field_contact-us-choose-one">Choose One</label> <label for="form_field_contact-us-choose-one_Yes"><input id="form_field_contact-us-choose-one_Yes" name="form_field_contact-us-choose-one" type="radio" value="Yes"> <span>Yes</span></label> <label for="form_field_contact-us-choose-one_No"><input id="form_field_contact-us-choose-one_No" name="form_field_contact-us-choose-one" type="radio" value="No"> <span>No</span></label> <label for="form_field_contact-us-choose-one_Maybe"><input id="form_field_contact-us-choose-one_Maybe" name="form_field_contact-us-choose-one" type="radio" value="Maybe"> <span>Maybe</span></label>
+                </div>
 
-            <div class="form-field form-field-type-select-radio-buttons">
-                <label for="id_form_field_contact-us-choose-one">Choose One</label> <label for="form_field_contact-us-choose-one_Yes"><input id="form_field_contact-us-choose-one_Yes" name="form_field_contact-us-choose-one" type="radio" value="Yes"> <span>Yes</span></label> <label for="form_field_contact-us-choose-one_No"><input id="form_field_contact-us-choose-one_No" name="form_field_contact-us-choose-one" type="radio" value="No"> <span>No</span></label> <label for="form_field_contact-us-choose-one_Maybe"><input id="form_field_contact-us-choose-one_Maybe" name="form_field_contact-us-choose-one" type="radio" value="Maybe"> <span>Maybe</span></label>
-            </div>
+                <div class="form-field form-field-type-select-buttons">
+                    <label for="id_form_field_contact-us-choose-one-2">Choose One</label> <label for="form_field_contact-us-choose-one-2_Yes"><input id="form_field_contact-us-choose-one-2_Yes" name="form_field_contact-us-choose-one-2" type="radio" value="Yes"> <span>Yes</span></label> <label for="form_field_contact-us-choose-one-2_No"><input id="form_field_contact-us-choose-one-2_No" name="form_field_contact-us-choose-one-2" type="radio" value="No"> <span>No</span></label> <label for="form_field_contact-us-choose-one-2_Maybe"><input id="form_field_contact-us-choose-one-2_Maybe" name="form_field_contact-us-choose-one-2" type="radio" value="Maybe"> <span>Maybe</span></label>
+                </div>
 
-            <div class="form-field form-field-type-select-buttons">
-                <label for="id_form_field_contact-us-choose-one-2">Choose One</label> <label for="form_field_contact-us-choose-one-2_Yes"><input id="form_field_contact-us-choose-one-2_Yes" name="form_field_contact-us-choose-one-2" type="radio" value="Yes"> <span>Yes</span></label> <label for="form_field_contact-us-choose-one-2_No"><input id="form_field_contact-us-choose-one-2_No" name="form_field_contact-us-choose-one-2" type="radio" value="No"> <span>No</span></label> <label for="form_field_contact-us-choose-one-2_Maybe"><input id="form_field_contact-us-choose-one-2_Maybe" name="form_field_contact-us-choose-one-2" type="radio" value="Maybe"> <span>Maybe</span></label>
-            </div>
+            
+                <div class="form-field form-field-type-file-field">
+                    <label for="form_field_contact-us-basic-file-field">File Field Field</label> 
+                    <input name="form_field_contact-us-basic-file-field" id="id_form_field_contact-us-basic-file-field" type="file">
+                    <div class="preview"></div>
+                </div>
 
-        
-            <div class="form-field form-field-type-file-field">
-                <label for="form_field_contact-us-basic-file-field">File Field Field</label> 
-                <input name="form_field_contact-us-basic-file-field" id="id_form_field_contact-us-basic-file-field" type="file">
-                <div class="preview"></div>
-            </div>
+                <div class="form-field form-field-type-text-field">
+                    <label for="id_form_field_contact-us-this-should-be-an-email-address">This should be an email address</label> <input id="id_form_field_contact-us-this-should-be-an-email-address" name="form_field_contact-us-this-should-be-an-email-address" type="email" value="">
+                </div>
 
-            <div class="form-field form-field-type-text-field">
-                <label for="id_form_field_contact-us-this-should-be-an-email-address">This should be an email address</label> <input id="id_form_field_contact-us-this-should-be-an-email-address" name="form_field_contact-us-this-should-be-an-email-address" type="email" value="">
-            </div>
+                <div class="form-field form-field-type-text-field">
+                    <label for="id_form_field_contact-us-this-should-be-a-url">This should be a URL</label> <input id="id_form_field_contact-us-this-should-be-a-url" name="form_field_contact-us-this-should-be-a-url" type="url" value="">
+                </div>
 
-            <div class="form-field form-field-type-text-field">
-                <label for="id_form_field_contact-us-this-should-be-a-url">This should be a URL</label> <input id="id_form_field_contact-us-this-should-be-a-url" name="form_field_contact-us-this-should-be-a-url" type="url" value="">
-            </div>
+                <div class="form-field form-field-type-text-field">
+                    <label for="id_form_field_contact-us-this-should-be-a-url">Twitter Handle</label> 
+                    <input id="id_form_field_contact-us-this-should-be-a-url" name="form_field_contact-us-this-should-be-a-url" type="url" value="" data-prefix="twitter handle @">
+                </div>
 
-            <div class="form-field form-field-type-text-field">
-                <label for="id_form_field_contact-us-this-should-be-a-url">Twitter Handle</label> 
-                <input id="id_form_field_contact-us-this-should-be-a-url" name="form_field_contact-us-this-should-be-a-url" type="url" value="" data-prefix="twitter handle @">
-            </div>
+                <div class="form-field form-field-type-text-field has-icon">
+                    <label for="id_form_field_contact-us-this-should-be-a-url">Twitter Handle</label> 
+                    <input id="id_form_field_contact-us-this-should-be-a-url" name="form_field_contact-us-this-should-be-a-url" type="url" value="">
+                    <span class="icon fa fa-twitter"></span>
+                </div>
 
-            <div class="form-field form-field-type-text-field has-icon">
-                <label for="id_form_field_contact-us-this-should-be-a-url">Twitter Handle</label> 
-                <input id="id_form_field_contact-us-this-should-be-a-url" name="form_field_contact-us-this-should-be-a-url" type="url" value="">
-                <span class="icon fa fa-twitter"></span>
-            </div>
+                <div class="form-field form-field-type-date">
+                    <label for="id_form_field_contact-us-date">Date (last couple days)</label> 
+                    <input id="id_form_field_contact-us-date" name="form_field_contact-us-date" type="text" value="" class="field-type-date" data-min-date="-1970/01/02" data-max-date="+1970/01/02">
+                    <noscript><span class="help-text">Date Format Here</span></noscript>
+                </div>
 
-            <div class="form-field form-field-type-date">
-                <label for="id_form_field_contact-us-date">Date (last couple days)</label> 
-                <input id="id_form_field_contact-us-date" name="form_field_contact-us-date" type="text" value="" class="field-type-date" data-min-date="-1970/01/02" data-max-date="+1970/01/02">
-                <noscript><span class="help-text">Date Format Here</span></noscript>
-            </div>
+                <div class="form-field form-field-type-time">
+                    <label for="id_form_field_contact-us-time">Time</label> 
+                    <input id="id_form_field_contact-us-time" name="form_field_contact-us-time" type="text" value="" class="field-type-time">
+                    <noscript><span class="help-text">Time Format Here</span></noscript>
+                </div>
 
-            <div class="form-field form-field-type-time">
-                <label for="id_form_field_contact-us-time">Time</label> 
-                <input id="id_form_field_contact-us-time" name="form_field_contact-us-time" type="text" value="" class="field-type-time">
-                <noscript><span class="help-text">Time Format Here</span></noscript>
-            </div>
+                <div class="form-field form-field-type-date-time">
+                    <label for="id_form_field_contact-us-date-and-time">Date and time in 1999</label> 
+                    <input id="id_form_field_contact-us-date-and-time" name="form_field_contact-us-date-and-time" type="text" value="" class="field-type-date-time" data-min-date="1999/01/01" data-max-date="1999/12/31">
+                    <noscript><span class="help-text">Date Time Format Here</span></noscript>
+                </div>
 
-            <div class="form-field form-field-type-date-time">
-                <label for="id_form_field_contact-us-date-and-time">Date and time in 1999</label> 
-                <input id="id_form_field_contact-us-date-and-time" name="form_field_contact-us-date-and-time" type="text" value="" class="field-type-date-time" data-min-date="1999/01/01" data-max-date="1999/12/31">
-                <noscript><span class="help-text">Date Time Format Here</span></noscript>
-            </div>
+                <div class="form-field form-field-type-date-time">
+                    <label for="id_form_field_contact-us-date-and-time">Date and time</label> 
+                    <input id="id_form_field_contact-us-date-and-time" name="form_field_contact-us-date-and-time" type="text" value="" class="field-type-date-time" >
+                    <noscript><span class="help-text">Date Time Format Here</span></noscript>
+                </div>
 
-            <div class="form-field form-field-type-date-time">
-                <label for="id_form_field_contact-us-date-and-time">Date and time</label> 
-                <input id="id_form_field_contact-us-date-and-time" name="form_field_contact-us-date-and-time" type="text" value="" class="field-type-date-time" >
-                <noscript><span class="help-text">Date Time Format Here</span></noscript>
-            </div>
+                <div class="form-field form-field-type-select-multiple-checkboxes">
+                    <label for="id_form_field_contact-us-select-multiple-checkboxes">Select Multiple checkboxes!</label> <label for="form_field_contact-us-select-multiple-checkboxes_This"><input id="form_field_contact-us-select-multiple-checkboxes_This" name="form_field_contact-us-select-multiple-checkboxes" type="checkbox" value="This"> <span>This</span></label> <label for="form_field_contact-us-select-multiple-checkboxes_That"><input id="form_field_contact-us-select-multiple-checkboxes_That" name="form_field_contact-us-select-multiple-checkboxes" type="checkbox" value="That"> <span>That</span></label> <label for="form_field_contact-us-select-multiple-checkboxes_Other"><input id="form_field_contact-us-select-multiple-checkboxes_Other" name="form_field_contact-us-select-multiple-checkboxes" type="checkbox" value="Other"> <span>Other</span></label>
+                </div>
 
-            <div class="form-field form-field-type-select-multiple-checkboxes">
-                <label for="id_form_field_contact-us-select-multiple-checkboxes">Select Multiple checkboxes!</label> <label for="form_field_contact-us-select-multiple-checkboxes_This"><input id="form_field_contact-us-select-multiple-checkboxes_This" name="form_field_contact-us-select-multiple-checkboxes" type="checkbox" value="This"> <span>This</span></label> <label for="form_field_contact-us-select-multiple-checkboxes_That"><input id="form_field_contact-us-select-multiple-checkboxes_That" name="form_field_contact-us-select-multiple-checkboxes" type="checkbox" value="That"> <span>That</span></label> <label for="form_field_contact-us-select-multiple-checkboxes_Other"><input id="form_field_contact-us-select-multiple-checkboxes_Other" name="form_field_contact-us-select-multiple-checkboxes" type="checkbox" value="Other"> <span>Other</span></label>
-            </div>
+                <div class="form-field form-field-type-select-multiple-autosuggest">
+                    <label for="id_form_field_contact-us-select-multiple-autosuggest">Select Multiple autosuggest!</label> 
 
-            <div class="form-field form-field-type-select-multiple-autosuggest">
-                <label for="id_form_field_contact-us-select-multiple-autosuggest">Select Multiple autosuggest!</label> 
+                    <select id="id_form_field_contact-us-select-multiple-autosuggest" multiple name="form_field_contact-us-select-multiple-autosuggest"
+                    class="field-type-select-multiple-autosuggest">
+                        <option value="This">
+                            This
+                        </option>
 
-                <select id="id_form_field_contact-us-select-multiple-autosuggest" multiple name="form_field_contact-us-select-multiple-autosuggest"
-                class="field-type-select-multiple-autosuggest">
-                    <option value="This">
-                        This
-                    </option>
+                        <option value="That">
+                            That
+                        </option>
 
-                    <option value="That">
-                        That
-                    </option>
+                        <option value="Other">
+                            Other
+                        </option>
+                    </select>
+                </div>
 
-                    <option value="Other">
-                        Other
-                    </option>
-                </select>
-            </div>
+                <div class="form-field form-field-type-select-multiple-horizontal">
+                    <label for="id_form_field_contact-us-select-multiple-horizontal">Select Multiple Horizontal!</label> 
 
-            <div class="form-field form-field-type-select-multiple-horizontal">
-                <label for="id_form_field_contact-us-select-multiple-horizontal">Select Multiple Horizontal!</label> 
+                    <select id="id_form_field_contact-us-select-multiple-horizontal" multiple name="form_field_contact-us-select-multiple-horizontal" 
+                    class="field-type-select-multiple-horizontal"
+                    >
+                        <option value="This">
+                            This
+                        </option>
 
-                <select id="id_form_field_contact-us-select-multiple-horizontal" multiple name="form_field_contact-us-select-multiple-horizontal" 
-                class="field-type-select-multiple-horizontal"
-                >
-                    <option value="This">
-                        This
-                    </option>
+                        <option value="That">
+                            That
+                        </option>
 
-                    <option value="That">
-                        That
-                    </option>
+                        <option value="Other">
+                            Other
+                        </option>
+                    </select>
+                </div>
 
-                    <option value="Other">
-                        Other
-                    </option>
-                </select>
-            </div>
+                <div class="form-field form-field-type-select-multiple-images">
+                    <label for="id_form_field_contact-us-select-multiple-images">Select Multiple Images!</label> 
 
-            <div class="form-field form-field-type-select-multiple-images">
-                <label for="id_form_field_contact-us-select-multiple-images">Select Multiple Images!</label> 
+                    <select id="id_form_field_contact-us-select-multiple-images" multiple name="form_field_contact-us-select-multiple-images"
+                    class="field-type-select-multiple-images">
+                        <option data-img-src="http://placekitten.com/220/200" value="1">Cute Kitten 1</option>
+                        <option data-img-src="http://placekitten.com/180/200" value="2">Cute Kitten 2</option>
+                        <option data-img-src="http://placekitten.com/130/200" value="3">Cute Kitten 3</option>
+                        <option data-img-src="http://placekitten.com/270/200" value="4">Cute Kitten 4</option>
+                    </select>
+                </div>
 
-                <select id="id_form_field_contact-us-select-multiple-images" multiple name="form_field_contact-us-select-multiple-images"
-                class="field-type-select-multiple-images">
-                    <option data-img-src="http://placekitten.com/220/200" value="1">Cute Kitten 1</option>
-                    <option data-img-src="http://placekitten.com/180/200" value="2">Cute Kitten 2</option>
-                    <option data-img-src="http://placekitten.com/130/200" value="3">Cute Kitten 3</option>
-                    <option data-img-src="http://placekitten.com/270/200" value="4">Cute Kitten 4</option>
-                </select>
-            </div>
+                <div class="form-field form-field-type-password">
+                    <label for="id_form_field_password">Password</label> 
 
-            <div class="form-field form-field-type-password">
-                <label for="id_form_field_password">Password</label> 
+                    <input data-placeholder="enter password" id="id_form_field_password" name="form_field_password" placeholder="enter password" type="password" value=""> 
+                    <span class="help-text">help text here</span>
+                </div>
 
-                <input data-placeholder="enter password" id="id_form_field_password" name="form_field_password" placeholder="enter password" type="password" value=""> 
-                <span class="help-text">help text here</span>
-            </div>
+                <div class="form-field form-field-type-score">
+                    <label for="id_form_field_score">Score</label>
+                    <input id="id_form_field_score" name="form_field_score" type="number" min="0" max="10" value="3" step="1"> 
+                    <span class="help-text">help text here</span>
+                </div>
 
-            <div class="form-field form-field-type-score">
-                <label for="id_form_field_score">Score</label>
-                <input id="id_form_field_score" name="form_field_score" type="number" min="0" max="10" value="3" step="1"> 
-                <span class="help-text">help text here</span>
-            </div>
+                <div class="form-field form-field-type-number-slider">
+                    <label for="id_form_field_number-slider">Number on a Slider</label>
+                    <input id="id_form_field_number-slider" name="form_field_score" type="number" min="0" max="5" value="3" step="1"> 
+                    <span class="help-text">help text here</span>
+                </div>
 
-            <div class="form-field form-field-type-number-slider">
-                <label for="id_form_field_number-slider">Number on a Slider</label>
-                <input id="id_form_field_number-slider" name="form_field_score" type="number" min="0" max="5" value="3" step="1"> 
-                <span class="help-text">help text here</span>
-            </div>
-
-            <div class="form-field form-field-type-range">
-                <label for="id_form_field_range">Range</label>
-                <input id="id_form_field_range" name="form_field_score" type="range" min="100" max="200" value="150" step="10"> 
-                <span class="help-text">help text here</span>
-            </div>
+                <div class="form-field form-field-type-range">
+                    <label for="id_form_field_range">Range</label>
+                    <input id="id_form_field_range" name="form_field_score" type="range" min="100" max="200" value="150" step="10"> 
+                    <span class="help-text">help text here</span>
+                </div>
 
 
-            <input type="submit" value="Submit">
-        </form>
-        
+                <input type="submit" value="Submit">
+            </form>
+        </div>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         
