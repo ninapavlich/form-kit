@@ -1,0 +1,38 @@
+@mixin micro-clearfix(){
+  &:before,
+  &:after {
+      content: " "; /* 1 */
+      display: table; /* 2 */
+  }
+
+  &:after {
+      clear: both;
+  }
+}
+
+@mixin button(){
+    padding: 0.5em 1em;
+    border: 1px solid #474540;
+    background: transparent;
+}
+@mixin button-disabled(){
+    border-color: #6f6e66;
+}
+@mixin button-focus(){
+    border-color: #000;
+    background: rgba(255, 255, 255, 0.5);
+}
+@mixin button-active(){
+    background-color:#474540;
+    color:#fff;
+}
+@mixin text-input(){
+    padding: 0.5em 0.75em;
+    background: transparent;
+    border: 1px solid #474540;
+    
+    &:focus{
+        border-color: #000;
+        outline: none;
+    }
+}

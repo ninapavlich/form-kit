@@ -1,0 +1,140 @@
+form{
+    padding: 1em 2em;
+    //background: #fff;
+    font-size: 16px;
+
+    @include box-sizing(border-box);
+}
+.form-field{
+    display:block;
+    margin: 1em 0;
+    @include micro-clearfix();
+    @include box-sizing(border-box);
+    *{
+        @include box-sizing(border-box);
+    }
+    position:relative;
+      
+    
+    textarea,
+    input[type=text],
+    input[type=email],
+    input[type=url],
+    input[type=number],
+    input[type=password]{
+        @include text-input();
+    }
+    textarea{
+        height:100px;
+    }
+    input,
+    textarea,
+    select,
+    .chosen-container,
+    .ms-container,
+    ul.thumbnails.image_picker_selector{
+        margin-top: 0.5em;
+        width: 100%;
+    }
+    &.form-field.form-field-type-select-buttons label:first-child{
+        margin-bottom: 0.5em;
+        width: 100%;
+    }
+    &.form-field-type-file-field .preview{
+        margin-top:0.5em;
+
+        img{
+            max-width: 100%;
+        }
+    }
+
+    .form-field-type-select-buttons input,
+    input[type=checkbox],
+    input[type=radio]{
+        width:auto;
+    }
+    
+    &.form-field-type-select-multiple-autosuggest,
+    &.form-field-type-select-multiple-checkboxes,
+    &.form-field-type-select-multiple-horizontal,
+    &.form-field-type-select-radio-buttons,
+    &.form-field-type-select-buttons,
+    &.form-field-type-boolean-checkboxes,
+    &.form-field-type-boolean-toggle{
+        label{
+            display:block;
+        }
+    }
+        
+    &.form-field-type-boolean-checkboxes,
+    &.form-field-type-select-multiple-checkboxes,
+    &.form-field-type-select-radio-buttons,
+    &.form-field-type-select-buttons{
+        input{
+            float: left;
+            margin: 0.3em 0.5em 0 0;
+        }
+    }
+    &.form-field-type-boolean-toggle,
+    &.form-field-type-select-buttons{
+        overflow:auto;
+        
+        
+        
+        label{
+            span{
+                display: inline-block;
+                margin-bottom: 1px;
+                @include button();
+                cursor: pointer;
+	            cursor: hand;
+	            
+	            &:hover, &:focus{
+                    @include button-focus();
+                }
+                
+	    
+            }
+            
+            display: inline-block;
+            &:first-child{
+                display:block;
+            }
+        }
+        input{
+            display: none;
+            position: absolute;
+            top: -100px;
+            &:active + span{
+                @include button-active();
+            }
+            &:checked + span {
+                
+                
+                @include button-active();
+            }
+        }
+        
+    }
+
+    .rangeslider{
+        margin-top:0.5em;
+        .rangeslider__fill{
+            background:#474540;
+        }
+    }
+    
+
+    /* icons bits */
+    .icon{
+        display:inline-block;
+        position: relative;
+        top: -20px;
+        left: 5px;
+    }
+    &.has-icon{
+        input{
+            padding-left:22px;
+        }
+    }
+}

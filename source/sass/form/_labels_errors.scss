@@ -1,0 +1,42 @@
+.form-field{
+    
+    
+    label,
+    .secondary-label{
+        display: inline-block;
+    }
+    
+    input,
+    .help-text,
+    .error-message,
+    .message{
+        display:block;
+        margin-top:0.3em;
+    }
+    
+    .secondary-label,
+    .help-text{
+        color: #6f6e66;
+    }
+    
+    label{
+        margin:0px;
+    }
+
+    .parsley-errors-list{
+        margin:0;
+    }
+
+    &.form-field-type-select-buttons .parsley-errors-list{
+        /* TODO */
+        display:none;
+    }
+
+    &.form-field-type-select-radio-buttons,
+    &.form-field-type-select-multiple-checkboxes{
+        label{
+            margin-bottom:0.3em;
+        }
+    }
+   
+}

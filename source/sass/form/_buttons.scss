@@ -1,0 +1,12 @@
+button, a.button, input[type=button], input[type=submit]{
+    @include button();
+    &:hover, &:focus{
+        @include button-focus();
+    }
+    &:active{
+        @include button-active();
+    }
+    &:disabled{
+        @include button-disabled();
+    }
+}
