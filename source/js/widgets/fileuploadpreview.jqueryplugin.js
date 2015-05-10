@@ -52,30 +52,37 @@
                     
                     //Block invalid header response types
                     var content_type = request.getResponseHeader('content-type');
-                    parent.renderPreview(url, content_type);
+                    var pieces = url.split("/");
+                    var filename = pieces[pieces.length-1]
+                    parent.renderPreview(url, content_type, filename);
                 },
                 error: function (xhr, ajaxOptions, thrownError) {}
             });
         },
         renderNewValue: function(src){
             var content_type = this.element.files[0].type;
-            this.renderPreview(src, content_type);
+            var filename = this.element.files[0].name;
+            
+            this.renderPreview(src, content_type, filename);
         },
-        renderPreview: function(src, content_type){
+        renderPreview: function(src, content_type, filename){
             var isImage = content_type.indexOf('image') >= 0;
+            var pieces = content_type.split("/");
+            var content_type_class = pieces.length > 0? 'type-'+pieces[0] : 'type-unknown';            
             var isData = src.indexOf('data:') >= 0;
-            var filename = this.getCurrentFilename()
+            
+            console.log("content_type: "+content_type)
 
             if(isImage){
                 if(isData){                
-                    var preview = '<img src="'+src+'" alt="file upload preview" />';
+                    var preview = '<div class="preview-inner '+content_type_class+'"><img src="'+src+'" alt="file upload preview" /></div>';
                 }else{                
-                    var preview = '<a href="'+src+'"><img src="'+src+'" alt="file upload preview" /></a>';
+                    var preview = '<div class="preview-inner '+content_type_class+'"><a href="'+src+'"><img src="'+src+'" alt="file upload preview" /></a></div>';
                 }
             }else if(isData){                
-                var preview = filename;
+                var preview = '<div class="preview-inner '+content_type_class+'"><p>'+filename+'</p></div>';
             }else{                
-                var preview = '<a href="'+src+'">'+filename+'</a>';
+                var preview = '<div class="preview-inner '+content_type_class+'"><a href="'+src+'"><p>'+filename+'</p></a></div>';
             }
 
             $(this.previewContainer).html(preview);
@@ -85,15 +92,6 @@
             var previewContainer = $('<div class="preview"></div>');
             $(this.element).after(previewContainer);
             return previewContainer;
-        },
-        getCurrentFilename: function(){
-            var filename = $(this.element).attr("value");
-            if(filename.indexOf('\\') >= 0){
-                var pieces = filename.split("\\");    
-            }else{
-                var pieces = filename.split("/");
-            }            
-            return pieces[pieces.length-1]
         },
         addListeners: function() {
             //bind events
