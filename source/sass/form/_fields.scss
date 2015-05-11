@@ -17,7 +17,8 @@ form{
     input[type=email],
     input[type=url],
     input[type=number],
-    input[type=password]{
+    input[type=password],
+    .tag-editor{
         @include text-input();
     }
     textarea{
@@ -28,11 +29,15 @@ form{
     select,
     .chosen-container,
     .ms-container,
-    ul.thumbnails.image_picker_selector{
+    ul.thumbnails.image_picker_selector,
+    .tag-editor,
+    &.form-field-type-file .preview{
         margin-top: 0.5em;
         width: 100%;
     }
-    &.form-field.form-field-type-select-buttons label:first-child{
+    &.form-field.form-field-type-select-buttons label:first-child,
+    &.form-field.form-field-type-select-multiple-buttons label:first-child{
+        
         margin-bottom: 0.5em;
         width: 100%;
     }
@@ -45,9 +50,16 @@ form{
     }
 
     .form-field-type-select-buttons input,
+    .form-field-type-select-multiple-buttons input,
     input[type=checkbox],
     input[type=radio]{
         width:auto;
+    }
+    .form-field-type-select-multiple-buttons{
+        .secondary-label{
+            displayy:block;
+            margin-bottom:0.5em;
+        }
     }
     
     &.form-field-type-select-multiple-autosuggest,
@@ -56,7 +68,8 @@ form{
     &.form-field-type-select-radio-buttons,
     &.form-field-type-select-buttons,
     &.form-field-type-boolean-checkboxes,
-    &.form-field-type-boolean-toggle{
+    &.form-field-type-boolean-toggle,
+    &.form-field-type-select-multiple-buttons{
         label{
             display:block;
         }
@@ -65,14 +78,16 @@ form{
     &.form-field-type-boolean-checkboxes,
     &.form-field-type-select-multiple-checkboxes,
     &.form-field-type-select-radio-buttons,
-    &.form-field-type-select-buttons{
+    &.form-field-type-select-buttons,
+    &.form-field-type-select-multiple-buttons{
         input{
             float: left;
             margin: 0.3em 0.5em 0 0;
         }
     }
     &.form-field-type-boolean-toggle,
-    &.form-field-type-select-buttons{
+    &.form-field-type-select-buttons,
+    &.form-field-type-select-multiple-buttons{
         overflow:auto;
         
         
@@ -82,8 +97,7 @@ form{
                 display: inline-block;
                 margin-bottom: 1px;
                 @include button();
-                cursor: pointer;
-	            cursor: hand;
+                @include hand-cursor();
 	            
 	            &:hover, &:focus{
                     @include button-focus();
@@ -113,6 +127,112 @@ form{
         
     }
 
+    /* Tag editor reset */
+    .tag-editor{
+        padding: 0.5em 0em;
+        & > li{
+            margin:0;
+
+            &:active{
+                .tag-editor-tag,
+                .tag-editor-delete{
+                    @include button-active();
+                }
+            }
+            &:hover, &:focus{
+                .tag-editor-tag,
+                .tag-editor-delete{
+                    @include button-focus();    
+                }
+            }
+
+            input{
+                padding:0px;
+                margin:0px;
+                border:0px;
+                font-size:14px;
+            }
+        }
+        .tag-editor-tag{
+            @include tag();
+        }
+        .tag-editor-delete{
+            @include tag-delete();
+
+            i{  
+                width: auto;
+                height: auto;
+                @include font-icon();
+                &:before{
+                    content: "\f00d";
+                }
+            }
+        }
+    }
+
+
+    /* Horitonzal selector reset */
+    .ms-container{
+        background:transparent;
+
+        /* replace icon */
+        &:before{
+            @include font-icon();
+            @include normal-text();
+            content: "\f0ec";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -8px;
+        }
+
+        .ms-selection,
+        .ms-selectable{
+            .ms-list{
+                @include container();
+                padding:0;
+
+                &.ms-focus{
+                    @include focused-container();
+                }
+                li,
+                .ms-elem-selection,
+                .ms-elem-selectable{
+                    padding: 0.5em;
+                    &.ms-hover{
+                        @include inverted-text();
+                    }
+                }
+            }
+        }
+    }
+
+    /* Image Picker reset */
+    ul.thumbnails{
+        &.image_picker_selector{
+            li{
+                .thumbnail{
+                    @include hand-cursor();
+                    @include container();
+                    padding: 0.5em;
+
+                    img{
+                        display:block;
+                    }
+                    &:hover, &:focus{
+                        @include button-focus();
+                    }
+                    &.selected, &:active{
+                        @include button-active();
+                    }
+                } 
+            }
+        }
+    } 
+
+
+
+    /* Slider Rest */
     .rangeslider{
         margin-top:0.5em;
         .rangeslider__fill{
@@ -123,14 +243,221 @@ form{
 
     /* icons bits */
     .icon{
-        display:inline-block;
-        position: relative;
-        top: -20px;
-        left: 5px;
-    }
-    &.has-icon{
-        input{
-            padding-left:22px;
+        display:block;
+        position: absolute;
+        @include opacity(0);
+        color:$text_color;
+        &.inited{
+            @include opacity(1);
         }
+
+        .center-outer {
+            display: table;
+            position: static;
+            width: 100%;
+            height: 100%;
+        }
+        .center-middle {
+            display: table-cell;
+            vertical-align: middle;
+            width: 100%;
+            position: static;
+            height: auto !important;
+            float: none !important;
+        }
+        .center-inner {
+            width: 100%;
+            height: auto !important;
+            float: none !important;
+            text-align:center;
+        }
+        
+        &.prefix{
+            left: 1px;
+            padding:0 15px 0 10px;
+        }
+        &.suffix{
+            right: 1px;
+            padding:0 10px 0 15px;
+        }
+    }
+}
+
+/* Date Picker reset */
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, 
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, 
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div.xdsoft_current {
+    background: $text_color !important;
+    box-shadow: none !important;
+}
+.xdsoft_datetimepicker .xdsoft_calendar td:hover, 
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div:hover{
+    background: $light_text_color !important;
+    box-shadow: none !important;
+}
+
+/* Image Preview Reset */
+.preview-inner{
+    position:relative;
+    min-height: 72px;
+
+    @include container();
+    padding:0px;
+    
+    background-color:$light_grey;
+
+    &:before{
+        @include normal-text();
+        @include font-icon();
+        
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        padding:15px;
+        font-size: 40px;
+
+        background-color:#fff;
+        background-color: rgba(255, 255, 255, 0.75);
+
+        
+    }
+    
+    p{
+        @include large-text();
+        text-align: center;
+        padding: 20px;
+    }
+    img{
+        max-width: 100%;
+        display: block;
+    }
+
+    &.type-image:before{
+        content: "\f03e";
+    }
+    &.type-text:before{
+        content: "\f15c";
+    }
+    &.type-application:before{
+        content: "\f1c1";
+    }
+}
+
+/* Chosen Reset */
+.chosen-container-single{
+    .chosen-single{
+        @include container;
+        @include normal-text();
+        height: auto;
+        padding: 0.5em 0.75em;
+
+        span{
+            &:after{
+                @include font-icon();
+                content: "\f078";
+                position:absolute;
+                right:12px;
+            }
+        }
+        
+    }
+    .chosen-drop{
+        @include container();
+        background:#fff;
+        border-top:0px;
+        border-radius: 0 !important;
+        padding: 0;
+
+        input{
+            @include text-input();
+        }
+    }
+    .chosen-search{
+        margin: 0.25em 0.5em;
+    }
+
+}
+.chosen-container-multi{
+    .chosen-choices{
+        @include container;
+        @include normal-text();
+        padding: 0.5em;
+
+        li{
+            &.search-choice{
+
+                background: transparent;
+                border-radius: 0;
+                box-shadow: none;
+                border: 0px;
+                padding: 0px;
+                margin: 0px 0.5em 0 0;
+
+                &:last-child{
+                    margin-right:0;
+                }
+
+                & > span{
+                    display: inline-block;
+                    @include tag();
+                }
+
+                .search-choice-close{
+                    @include tag-delete();
+                    @include font-icon();
+                    background: transparent;
+                    position: static;
+                    height: auto;
+                    width: auto;
+                    &:before{
+                        content: "\f00d";
+                    }
+                }
+
+            }
+            
+        }
+    }
+}
+
+.chosen-container{
+    .chosen-results{
+        margin:0px;
+        padding:0px;
+        li{
+            @include normal-text();
+            padding: 0.25em 1em;
+
+            &.highlighted{
+                @include inverted-text();
+                background-image: none;
+            }
+
+            &:first-child{
+                padding-top:0.5em;
+            }
+            &:last-child{
+                padding-bottom:0.5em;
+            }
+            &.no-results{
+                background:transparent;
+                padding:0.5em 1em 1em 1em;
+            }
+        }
+    }
+}
+.chosen-container-active{
+    .chosen-single{
+        box-shadow: none;
+    }
+    &.chosen-with-drop{
+        .chosen-single{
+            background: transparent;
+            border-color: $text_color;
+        }
+    }
+    .chosen-choices{
+        box-shadow: none;
+        border-color: $text_color;
     }
 }

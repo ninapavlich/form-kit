@@ -59,18 +59,6 @@ module.exports = function(grunt) {
                 files: [
                     {
                         cwd: 'bower_components/chosen/',
-                        src: 'chosen-sprite.png',
-                        dest: '../dist/css/',
-                        expand: true
-                    },
-                    {
-                        cwd: 'bower_components/chosen/',
-                        src: 'chosen-sprite@2x.png',
-                        dest: '../dist/css/',
-                        expand: true
-                    },
-                    {
-                        cwd: 'bower_components/chosen/',
                         src: 'chosen.jquery.min.js',
                         dest: 'js/vendor/',
                         expand: true
@@ -79,12 +67,6 @@ module.exports = function(grunt) {
                         cwd: 'bower_components/chosen/',
                         src: 'chosen.min.css',
                         dest: 'compiled/compass/',
-                        expand: true
-                    },
-                    {
-                        cwd: 'bower_components/multiselect/img/',
-                        src: 'switch.png',
-                        dest: '../dist/img/',
                         expand: true
                     },
                     {
@@ -183,18 +165,25 @@ module.exports = function(grunt) {
                         dest: 'js/vendor/',
                         expand: true
                     },
-                    // {
-                    //     cwd: 'bower_components/tag-it/js/',
-                    //     src: 'tag-it.js',
-                    //     dest: 'js/vendor/',
-                    //     expand: true
-                    // },
-                    // {
-                    //     cwd: 'bower_components/tag-it/css/',
-                    //     src: 'jquery.tagit.css',
-                    //     dest: 'compiled/compass/',
-                    //     expand: true
-                    // }
+                    
+                    {
+                        cwd: 'bower_components/jquery-tag-editor/',
+                        src: 'jquery.caret.min.js',
+                        dest: 'js/vendor/',
+                        expand: true
+                    },
+                    {
+                        cwd: 'bower_components/jquery-tag-editor/',
+                        src: 'jquery.tag-editor.js',
+                        dest: 'js/vendor/',
+                        expand: true
+                    },
+                    {
+                        cwd: 'bower_components/jquery-tag-editor/',
+                        src: 'jquery.tag-editor.css',
+                        dest: 'compiled/compass/',
+                        expand: true
+                    },
                     {
                         cwd: 'bower_components/jquery-placeholder/',
                         src: 'jquery.placeholder.js',

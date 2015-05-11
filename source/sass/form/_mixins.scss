@@ -9,30 +9,88 @@
       clear: both;
   }
 }
+@mixin font-icon(){
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
 
-@mixin button(){
-    padding: 0.5em 1em;
-    border: 1px solid #474540;
-    background: transparent;
+@mixin normal-text(){
+    color:$text_color;
+    font-size:16px;
+    line-height: normal;
 }
-@mixin button-disabled(){
-    border-color: #6f6e66;
+@mixin small-text(){
+    color:$text_color;
+    font-size:14px;
+    line-height: normal;
 }
-@mixin button-focus(){
-    border-color: #000;
-    background: rgba(255, 255, 255, 0.5);
+@mixin large-text(){
+    font-size: 24px;
+    line-height: normal
 }
-@mixin button-active(){
-    background-color:#474540;
+@mixin inverted-text(){
+    background-color:$text_color;
     color:#fff;
 }
+@mixin container(){
+  padding: 0.5em 1em;
+  border: 1px solid $text_color;
+  background: transparent;
+  @include normal-text(); 
+  @include border-radius(0);
+}
+@mixin focused-container(){
+  border-color: #000;
+  outline: none;
+  @include box-shadow(none);
+}
+@mixin button(){
+  @include container(); 
+}
+@mixin button-disabled(){
+    border-color: $light_text_color;
+}
+@mixin button-focus(){
+    background-color:rgba(0,0,0,.6);
+    color:#fff;
+}
+@mixin button-active(){
+    @include inverted-text();
+}
 @mixin text-input(){
+    @include normal-text();
+
     padding: 0.5em 0.75em;
     background: transparent;
-    border: 1px solid #474540;
+    border: 1px solid $text_color;
     
     &:focus{
-        border-color: #000;
-        outline: none;
+      @include focused-container();
+        
     }
+}
+
+@mixin tag(){
+  @include container();
+  @include small-text();
+  @include border-radius(0);
+
+  padding: 0.25em 0.25em 0.25em 0.5em;
+  border-right:0px;
+}
+@mixin tag-delete(){
+  @include small-text();
+  background: transparent;
+  border: 1px solid $text_color;
+  padding: 0.25em 0.5em 0.25em 0.25em;
+  border-left:0px;
+}
+@mixin hand-cursor(){
+    cursor: pointer;
+    cursor: hand;
 }

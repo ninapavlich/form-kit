@@ -1,5 +1,5 @@
 # form-kit
-All my favorite form enhancements in one place
+All my favorite form enhancements in one place with initialization code and a style reset
 
 
 Requires JQuery and Modernizr
@@ -26,6 +26,6 @@ This is a repo of form field templates and integration code to use all my favori
 - **Image Picker** http://rvera.github.io/image-picker/
 - **Better Selector** http://harvesthq.github.io/chosen/
 - **Loudev Horizontal Multiselect** http://loudev.com/
-- **xdsoft Date and Timepicker** http://xdsoft.net/jqplugins/datetimepicker/
-- **Tag It** https://github.com/aehlke/tag-it
+- **XDan Date Time Picker** https://github.com/xdan/datetimepicker
+- **Tag List** https://maxfavilli.com/jquery-tag-manager
 - **rangeslider.js Polyfill** http://andreruffert.github.io/rangeslider.js/

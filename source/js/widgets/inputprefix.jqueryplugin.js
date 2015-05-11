@@ -8,8 +8,9 @@
     // Create the defaults once
     var pluginName = "inputPrefix",
         defaults = {
-            iconPadding: 10,
-            parentSelector: '.form-field'
+            parentSelector: '.form-field',
+            dataPrefixSelector: 'data-inset-prefix',
+            dataSuffixSelector: 'data-inset-suffix'
         };
 
     function InputPrefix( element, options ) {
@@ -28,35 +29,92 @@
         init: function() {
               
 
-            var inputs = $(this.element).find("input");
+            var inputs = $(this.element).find("input, textarea");
             var parent = this;
             $(inputs).each(function(index, item) {
-                var prefix = $(item).attr('data-prefix');
+                var prefix = $(item).attr(parent.options.dataPrefixSelector);
+                var suffix = $(item).attr(parent.options.dataSuffixSelector);
                 var hasPrefix = (typeof prefix !== typeof undefined && prefix !== false);
+                var hasSuffix = (typeof suffix !== typeof undefined && suffix !== false);
+
+                var elementHeight = $(item).height();
+                var elementWidth = $(item).width();
+
+                
+             
+
+        
                 
                 if(hasPrefix){
-                    var prefixContainer = $('<span class="icon prefix">'+prefix+'</span>');
+                    var prefixContainer = $('<div class="icon prefix"><div class="center-outer"><div class="center-middle"><div class="center-inner">'+prefix+'</div></div></div></div>');
                     $(item).after(prefixContainer);                    
                 }
 
+                if(hasSuffix){
+                    var suffixContainer = $('<div class="icon suffix"><div class="center-outer"><div class="center-middle"><div class="center-inner">'+suffix+'</div></div></div></div>');
+                    $(item).after(suffixContainer);                    
+                }
+
+                parent.resize();
+
+                $( item ).bind("mouseup", function(){
+                    var newElementHeight = $(item).height();
+                    var newElementWidth = $(item).width();
+
+                    if(newElementHeight != elementHeight || newElementWidth != elementWidth){
+                        parent.resize();
+                    }
+                    elementHeight = newElementHeight;
+                    elementWidth = newElementWidth;
+                });
+                
+
+
+            });
+    
+            $( window ).bind("resize", function(){
+                parent.resize();
+            });
+            
+        },
+        resize: function(){
+
+            var inputs = $(this.element).find("input, textarea");
+            var parent = this;
+            $(inputs).each(function(index, item) {
                 var hasIcon = $(item).parent(parent.options.parentSelector).find('.icon').length > 0;
                 if(hasIcon){
 
+                    
+                    var prefix = $(item).parent(parent.options.parentSelector).find('.prefix');
+                    if(prefix.length){
+                        var prefix_width = $(prefix).outerWidth();
+                        $(item).css("padding-left", prefix_width+"px");
+                    }
+                    
+                    var suffix = $(item).parent(parent.options.parentSelector).find('.suffix');
+                    if(suffix.length > 0){
+                        var suffix_width = $(suffix).outerWidth();
+                        $(item).css("padding-right", suffix_width+"px");    
+                    }
+                    
+
+
                     var icon = $(item).parent(parent.options.parentSelector).find('.icon');
+                    var topBorder = parseInt($(item).css("border-top-width"));
+                    var bottomBorder = parseInt($(item).css("border-bottom-width"));
 
-                    var icon_width = $(icon).outerWidth();
-                    var item_height = $(item).outerHeight();
+                    var item_height = $(item).outerHeight() - topBorder - bottomBorder;
                     var icon_height = $(icon).outerHeight();
+                    var inputY = $(item).offset().top - $(item).parent().offset().top + topBorder;
+                    //var top = inputY + (0.5*item_height) - (0.5*icon_height)
+                    $(icon).css("top", inputY+"px");
+                    $(icon).css("height", item_height);
 
-                    var w = icon_width+parent.options.iconPadding;
-                    $(item).css("padding-left", w+"px");
-                                        
-                    var top = 0 - (0.5*item_height) - (0.5*icon_height)
-                    $(icon).css("top", top+"px");
+                    $(icon).addClass('inited');
                 }
-                
             });
-            
+
         }
     };
 

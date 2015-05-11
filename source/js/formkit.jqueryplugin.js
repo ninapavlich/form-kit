@@ -10,9 +10,11 @@
         defaults = {
             imageWidgetSelector: "option[data-img-src]",
             horizontalSelector:"field-type-select-multiple-horizontal",
+            buttonSelector: "field-type-select-multiple-buttons",
             datePickerSelector:"field-type-date",
             dateTimePickerSelector:"field-type-date-time",
-            timePickerSelector:"field-type-time"
+            timePickerSelector:"field-type-time",
+            listSelector:"field-type-comma-separated-list",
         };
 
 
@@ -37,6 +39,7 @@
             this.initDates();
             this.initSelects();  
             this.initPlaceholderShims(); 
+            this.initListWidget();
             
             $(this.element).inputPrefix();
             
@@ -99,6 +102,7 @@
                 // console.log("use date picker")
                 $(input).datetimepicker({
                     timepicker:false,
+                    format:'Y-m-d',
                     minDate:minDate,
                     maxDate:maxDate,
                     startDate:startDate
@@ -106,6 +110,7 @@
             }else if(isDateTimePicker){
                 // console.log("use date time picker")
                 $(input).datetimepicker({
+                    format:'Y-m-d H:i',
                     minDate:minDate,
                     maxDate:maxDate,
                     startDate:startDate
@@ -154,6 +159,7 @@
             var isMultiple = (typeof multiAttr !== typeof undefined && multiAttr !== false);
             var isImage = (typeof dataImgSrc !== typeof undefined && dataImgSrc !== false && dataImgSrc.length != 0);
             var isHorizontal = $(select).hasClass(this.options.horizontalSelector);
+            var isButtons = $(select).hasClass(this.options.buttonSelector);
             var isTouch = $(".touch").length >= 1;            
             
             // var hasEnoughItems = $(select).find('option').size() > 15;
@@ -174,6 +180,8 @@
                     }else if(isHorizontal){
                         this.debug("use horizontal widget")
                         $(select).multiSelect();
+                    }else if(isButtons){
+                        this.debug("use buttons")
                     }else{
                         this.debug("use harvest widget")
                         $(select).chosen({}); 
@@ -194,6 +202,20 @@
             if(Modernizr.input.placeholder==false){
                 $(this.element).find('input, textarea').placeholder();
             }
+        },
+        initListWidget: function(){
+            var inputs = $(this.element).find("input, textarea");
+            var parent = this;
+            $(inputs).each(function(index, item) {
+
+                var isList = $(item).hasClass(parent.options.listSelector);
+                if(isList){
+                    console.log("init tag list! ")
+                    $(item).tagEditor();
+                }
+                
+            });
+            
         },
         render: function() {
             //Update view

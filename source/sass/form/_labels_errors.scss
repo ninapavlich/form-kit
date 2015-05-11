@@ -16,7 +16,8 @@
     
     .secondary-label,
     .help-text{
-        color: #6f6e66;
+        @include small-text();
+        color: $light_text_color;
     }
     
     label{
@@ -35,6 +36,12 @@
     &.form-field-type-select-radio-buttons,
     &.form-field-type-select-multiple-checkboxes{
         label{
+            margin-bottom:0.3em;
+        }
+    }
+    &.form-field-type-select-multiple-buttons{
+        .secondary-label{
+            display:block;
             margin-bottom:0.3em;
         }
     }
