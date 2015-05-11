@@ -210,7 +210,6 @@
 
                 var isList = $(item).hasClass(parent.options.listSelector);
                 if(isList){
-                    console.log("init tag list! ")
                     $(item).tagEditor();
                 }
                 

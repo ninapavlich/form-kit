@@ -42,8 +42,11 @@
 
                 
              
-
-        
+                var originalPaddingRight = parseInt($(item).css("padding-right"));
+                var originalPaddingLeft = parseInt($(item).css("padding-left"));
+            
+                $(item).attr('data-original-padding-right', originalPaddingRight);
+                $(item).attr('data-original-padding-left', originalPaddingLeft);
                 
                 if(hasPrefix){
                     var prefixContainer = $('<div class="icon prefix"><div class="center-outer"><div class="center-middle"><div class="center-inner">'+prefix+'</div></div></div></div>');
@@ -55,7 +58,9 @@
                     $(item).after(suffixContainer);                    
                 }
 
-                parent.resize();
+
+
+                
 
                 $( item ).bind("mouseup", function(){
                     var newElementHeight = $(item).height();
@@ -71,6 +76,8 @@
 
 
             });
+
+            parent.resize();
     
             $( window ).bind("resize", function(){
                 parent.resize();
@@ -85,16 +92,20 @@
                 var hasIcon = $(item).parent(parent.options.parentSelector).find('.icon').length > 0;
                 if(hasIcon){
 
+                    var originalPaddingRight = parseInt($(item).attr('data-original-padding-right'));
+                    var originalPaddingLeft = parseInt($(item).attr('data-original-padding-left'));
+
+                    
                     
                     var prefix = $(item).parent(parent.options.parentSelector).find('.prefix');
                     if(prefix.length){
-                        var prefix_width = $(prefix).outerWidth();
+                        var prefix_width = originalPaddingLeft + $(prefix).outerWidth();
                         $(item).css("padding-left", prefix_width+"px");
                     }
                     
                     var suffix = $(item).parent(parent.options.parentSelector).find('.suffix');
                     if(suffix.length > 0){
-                        var suffix_width = $(suffix).outerWidth();
+                        var suffix_width = originalPaddingRight + $(suffix).outerWidth();
                         $(item).css("padding-right", suffix_width+"px");    
                     }
                     

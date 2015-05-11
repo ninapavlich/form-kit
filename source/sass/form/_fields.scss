@@ -246,7 +246,8 @@ form{
         display:block;
         position: absolute;
         @include opacity(0);
-        color:$text_color;
+        color:#fff;
+        background-color:$text_color;
         &.inited{
             @include opacity(1);
         }

@@ -417,21 +417,22 @@ form {
   position: absolute;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  color: #474540;
+  color: #fff;
+  background-color: #474540;
 }
-/* line 250, ../../sass/form/_fields.scss */
+/* line 251, ../../sass/form/_fields.scss */
 .form-field .icon.inited {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 254, ../../sass/form/_fields.scss */
+/* line 255, ../../sass/form/_fields.scss */
 .form-field .icon .center-outer {
   display: table;
   position: static;
   width: 100%;
   height: 100%;
 }
-/* line 260, ../../sass/form/_fields.scss */
+/* line 261, ../../sass/form/_fields.scss */
 .form-field .icon .center-middle {
   display: table-cell;
   vertical-align: middle;
@@ -440,26 +441,26 @@ form {
   height: auto !important;
   float: none !important;
 }
-/* line 268, ../../sass/form/_fields.scss */
+/* line 269, ../../sass/form/_fields.scss */
 .form-field .icon .center-inner {
   width: 100%;
   height: auto !important;
   float: none !important;
   text-align: center;
 }
-/* line 275, ../../sass/form/_fields.scss */
+/* line 276, ../../sass/form/_fields.scss */
 .form-field .icon.prefix {
   left: 1px;
   padding: 0 15px 0 10px;
 }
-/* line 279, ../../sass/form/_fields.scss */
+/* line 280, ../../sass/form/_fields.scss */
 .form-field .icon.suffix {
   right: 1px;
   padding: 0 10px 0 15px;
 }
 
 /* Date Picker reset */
-/* line 287, ../../sass/form/_fields.scss */
+/* line 288, ../../sass/form/_fields.scss */
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default,
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current,
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div.xdsoft_current {
@@ -467,7 +468,7 @@ form {
   box-shadow: none !important;
 }
 
-/* line 293, ../../sass/form/_fields.scss */
+/* line 294, ../../sass/form/_fields.scss */
 .xdsoft_datetimepicker .xdsoft_calendar td:hover,
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div:hover {
   background: #6f6e66 !important;
@@ -475,7 +476,7 @@ form {
 }
 
 /* Image Preview Reset */
-/* line 300, ../../sass/form/_fields.scss */
+/* line 301, ../../sass/form/_fields.scss */
 .preview-inner {
   position: relative;
   min-height: 72px;
@@ -491,7 +492,7 @@ form {
   padding: 0px;
   background-color: #e5e5e5;
 }
-/* line 309, ../../sass/form/_fields.scss */
+/* line 310, ../../sass/form/_fields.scss */
 .preview-inner:before {
   color: #474540;
   font-size: 16px;
@@ -511,33 +512,33 @@ form {
   background-color: #fff;
   background-color: rgba(255, 255, 255, 0.75);
 }
-/* line 325, ../../sass/form/_fields.scss */
+/* line 326, ../../sass/form/_fields.scss */
 .preview-inner p {
   font-size: 24px;
   line-height: normal;
   text-align: center;
   padding: 20px;
 }
-/* line 330, ../../sass/form/_fields.scss */
+/* line 331, ../../sass/form/_fields.scss */
 .preview-inner img {
   max-width: 100%;
   display: block;
 }
-/* line 335, ../../sass/form/_fields.scss */
+/* line 336, ../../sass/form/_fields.scss */
 .preview-inner.type-image:before {
   content: "\f03e";
 }
-/* line 338, ../../sass/form/_fields.scss */
+/* line 339, ../../sass/form/_fields.scss */
 .preview-inner.type-text:before {
   content: "\f15c";
 }
-/* line 341, ../../sass/form/_fields.scss */
+/* line 342, ../../sass/form/_fields.scss */
 .preview-inner.type-application:before {
   content: "\f1c1";
 }
 
 /* Chosen Reset */
-/* line 348, ../../sass/form/_fields.scss */
+/* line 349, ../../sass/form/_fields.scss */
 .chosen-container-single .chosen-single {
   padding: 0.5em 1em;
   border: 1px solid #474540;
@@ -554,7 +555,7 @@ form {
   height: auto;
   padding: 0.5em 0.75em;
 }
-/* line 355, ../../sass/form/_fields.scss */
+/* line 356, ../../sass/form/_fields.scss */
 .chosen-container-single .chosen-single span:after {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
@@ -567,7 +568,7 @@ form {
   position: absolute;
   right: 12px;
 }
-/* line 364, ../../sass/form/_fields.scss */
+/* line 365, ../../sass/form/_fields.scss */
 .chosen-container-single .chosen-drop {
   padding: 0.5em 1em;
   border: 1px solid #474540;
@@ -583,7 +584,7 @@ form {
   border-radius: 0 !important;
   padding: 0;
 }
-/* line 371, ../../sass/form/_fields.scss */
+/* line 372, ../../sass/form/_fields.scss */
 .chosen-container-single .chosen-drop input {
   color: #474540;
   font-size: 16px;
@@ -600,12 +601,12 @@ form {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-/* line 375, ../../sass/form/_fields.scss */
+/* line 376, ../../sass/form/_fields.scss */
 .chosen-container-single .chosen-search {
   margin: 0.25em 0.5em;
 }
 
-/* line 381, ../../sass/form/_fields.scss */
+/* line 382, ../../sass/form/_fields.scss */
 .chosen-container-multi .chosen-choices {
   padding: 0.5em 1em;
   border: 1px solid #474540;
@@ -621,7 +622,7 @@ form {
   line-height: normal;
   padding: 0.5em;
 }
-/* line 387, ../../sass/form/_fields.scss */
+/* line 388, ../../sass/form/_fields.scss */
 .chosen-container-multi .chosen-choices li.search-choice {
   background: transparent;
   border-radius: 0;
@@ -630,11 +631,11 @@ form {
   padding: 0px;
   margin: 0px 0.5em 0 0;
 }
-/* line 396, ../../sass/form/_fields.scss */
+/* line 397, ../../sass/form/_fields.scss */
 .chosen-container-multi .chosen-choices li.search-choice:last-child {
   margin-right: 0;
 }
-/* line 400, ../../sass/form/_fields.scss */
+/* line 401, ../../sass/form/_fields.scss */
 .chosen-container-multi .chosen-choices li.search-choice > span {
   display: inline-block;
   padding: 0.5em 1em;
@@ -655,7 +656,7 @@ form {
   padding: 0.25em 0.25em 0.25em 0.5em;
   border-right: 0px;
 }
-/* line 405, ../../sass/form/_fields.scss */
+/* line 406, ../../sass/form/_fields.scss */
 .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
   color: #474540;
   font-size: 14px;
@@ -676,53 +677,53 @@ form {
   height: auto;
   width: auto;
 }
-/* line 412, ../../sass/form/_fields.scss */
+/* line 413, ../../sass/form/_fields.scss */
 .chosen-container-multi .chosen-choices li.search-choice .search-choice-close:before {
   content: "\f00d";
 }
 
-/* line 424, ../../sass/form/_fields.scss */
+/* line 425, ../../sass/form/_fields.scss */
 .chosen-container .chosen-results {
   margin: 0px;
   padding: 0px;
 }
-/* line 427, ../../sass/form/_fields.scss */
+/* line 428, ../../sass/form/_fields.scss */
 .chosen-container .chosen-results li {
   color: #474540;
   font-size: 16px;
   line-height: normal;
   padding: 0.25em 1em;
 }
-/* line 431, ../../sass/form/_fields.scss */
+/* line 432, ../../sass/form/_fields.scss */
 .chosen-container .chosen-results li.highlighted {
   background-color: #474540;
   color: #fff;
   background-image: none;
 }
-/* line 436, ../../sass/form/_fields.scss */
+/* line 437, ../../sass/form/_fields.scss */
 .chosen-container .chosen-results li:first-child {
   padding-top: 0.5em;
 }
-/* line 439, ../../sass/form/_fields.scss */
+/* line 440, ../../sass/form/_fields.scss */
 .chosen-container .chosen-results li:last-child {
   padding-bottom: 0.5em;
 }
-/* line 442, ../../sass/form/_fields.scss */
+/* line 443, ../../sass/form/_fields.scss */
 .chosen-container .chosen-results li.no-results {
   background: transparent;
   padding: 0.5em 1em 1em 1em;
 }
 
-/* line 450, ../../sass/form/_fields.scss */
+/* line 451, ../../sass/form/_fields.scss */
 .chosen-container-active .chosen-single {
   box-shadow: none;
 }
-/* line 454, ../../sass/form/_fields.scss */
+/* line 455, ../../sass/form/_fields.scss */
 .chosen-container-active.chosen-with-drop .chosen-single {
   background: transparent;
   border-color: #474540;
 }
-/* line 459, ../../sass/form/_fields.scss */
+/* line 460, ../../sass/form/_fields.scss */
 .chosen-container-active .chosen-choices {
   box-shadow: none;
   border-color: #474540;
