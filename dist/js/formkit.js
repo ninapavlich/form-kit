@@ -6914,6 +6914,42 @@ window.ParsleyValidator.addValidator(
             });
             
         },
+        initAjaxForm:function(){
+            if($(this.element).hasClass('ajax')){
+                
+                var parent = this;
+                $(this.element).submit(function(event) {
+                    event.preventDefault();
+
+                    console.log($(parent.element).attr('method')+" to "+$(parent.element).attr('action'));
+                    var parent_ajax_target = $(parent.element).attr("data-ajax-target");
+                    $(parent.element).addClass("loading");
+                    $.ajax({
+                        type: $(parent.element).attr('method'),
+                        url: $(parent.element).attr('action'),
+                        data: $(parent.element).serialize(), // serializes the form's elements.
+                        success: function(data){
+
+                            var loaded_div = $(data);
+                            var new_inner_html = $(loaded_div).find(parent_ajax_target).html();
+
+                            $(parent.element).removeClass("loading");
+
+                            $(parent_ajax_target).html(new_inner_html);
+                            
+                            if( $(new_inner_html).find('form').length > 0 ){
+                                $(new_inner_html).find('form').formKit();
+                            }else{
+                                $(new_inner_html).formKit();
+                            }
+                        }
+                    });
+
+                    
+                });
+            }
+            
+        },
         render: function() {
             //Update view
         },
