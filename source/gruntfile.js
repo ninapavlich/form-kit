@@ -59,13 +59,13 @@ module.exports = function(grunt) {
                 files: [
                     {
                         cwd: 'bower_components/chosen/',
-                        src: 'chosen.jquery.min.js',
+                        src: 'chosen.jquery.js',
                         dest: 'js/vendor/',
                         expand: true
                     },
                     {
                         cwd: 'bower_components/chosen/',
-                        src: 'chosen.min.css',
+                        src: 'chosen.css',
                         dest: 'compiled/compass/',
                         expand: true
                     },
