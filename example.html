@@ -103,12 +103,23 @@
                 <input name='csrfmiddlewaretoken' type='hidden' value=''> <input id="id_form_schema" name="form_schema" type="hidden" value="1">
 
                 <div class="form-field form-field-type-text-area">
+                    <label for="id_form_field_contact-us-multi-line-text">Multi Line Text</label> <span class="secondary-label">with a clear button</span> 
+                    <textarea class="field-type-text-area" data-placeholder="enter text here!" id="id_form_field_contact-us-multi-line-text" maxlength="1000" name="form_field_contact-us-multi-line-text" placeholder="enter text here" data-inset-suffix="Wow!" ></textarea>
+                    <span class="help-text">do you need help?</span>
+                    
+                </div>
+
+                <div class="form-field form-field-type-text-area">
                     <label for="id_form_field_contact-us-multi-line-text">Multi Line Text</label> <span class="secondary-label">with a secondary label</span> 
-                    <textarea class="field-type-text-area" data-placeholder="enter text here" id="id_form_field_contact-us-multi-line-text" maxlength="1000" name="form_field_contact-us-multi-line-text" placeholder="enter text here" data-inset-suffix="Wow!" ></textarea> <span class="help-text">do you need help?</span>
+                    <textarea class="field-type-text-area" data-placeholder="enter text here!" id="id_form_field_contact-us-multi-line-text" maxlength="1000" name="form_field_contact-us-multi-line-text" placeholder="enter text here" ></textarea> 
+                    
+
+                    <button class="input-clear" type="button"><span class="fa fa-close"></span></button>
+                    
                 </div>
 
                 <div class="form-field form-field-type-text-field">
-                    <label for="id_form_field_contact-us-single-line-field">Single Line Field</label> <span class="secondary-label">secondary label here</span> <input class="field-type-text-field" data-placeholder="placeholder here" id="id_form_field_contact-us-single-line-field" name="form_field_contact-us-single-line-field" placeholder="placeholder here" type="email" value="nina@ninalp.com">
+                    <label for="id_form_field_contact-us-single-line-field">Single Line Field</label> <span class="secondary-label">secondary label here</span> <input class="field-type-text-field" data-placeholder="placeholder here!" id="id_form_field_contact-us-single-line-field" name="form_field_contact-us-single-line-field" placeholder="placeholder here" type="email" value="nina@ninalp.com">
 
                     <div class="icon prefix">
                         <div class="center-outer">
@@ -117,6 +128,12 @@
                             </div>
                         </div>
                     </div><span class="help-text">help text here</span>
+                </div>
+
+                <div class="form-field form-field-type-text-field">
+                    <label for="id_form_field_contact-us-single-line-field">Single Line Field</label> <span class="secondary-label">with a clear button</span> <input class="field-type-text-field" data-placeholder="placeholder here!" id="id_form_field_contact-us-single-line-field" name="form_field_contact-us-single-line-field" placeholder="placeholder here" type="email" value="test@email.com">
+
+                    <button class="input-clear" type="button"><span class="fa fa-close"></span></button>
                 </div>
 
                 <div class="form-field form-field-type-date">
@@ -144,12 +161,16 @@
                 </div>
 
                 <div class="form-field form-field-type-select-dropdown">
-                    <label for="id_form_field_contact-us-choose-an-item">Choose an item</label> <select class="field-type-select-dropdown" id="id_form_field_contact-us-choose-an-item" name="form_field_contact-us-choose-an-item">
+                    <label for="id_form_field_contact-us-choose-an-item">Choose an item</label> <select class="field-type-select-dropdown" id="id_form_field_contact-us-choose-an-item" name="form_field_contact-us-choose-an-item" >
+                        <option>
+                            Choose an item
+                        </option>
+
                         <option value="Yes">
                             Yes
                         </option>
 
-                        <option selected value="No">
+                        <option value="No">
                             No
                         </option>
 
@@ -220,7 +241,7 @@
                 </div>
 
                 <div class="form-field form-field-type-select-multiple-autosuggest">
-                    <label for="id_form_field_contact-us-select-multiple-autosuggest">Select Multiple autosuggest!</label> <select class="field-type-select-multiple-autosuggest" id="id_form_field_contact-us-select-multiple-autosuggest" multiple name="form_field_contact-us-select-multiple-autosuggest">
+                    <label for="id_form_field_contact-us-select-multiple-autosuggest">Select Multiple autosuggest!</label> <select class="field-type-select-multiple-autosuggest" id="id_form_field_contact-us-select-multiple-autosuggest" multiple name="form_field_contact-us-select-multiple-autosuggest" data-placeholder="Choose multiple items!">
                         <option selected value="This">
                             This
                         </option>

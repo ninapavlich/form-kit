@@ -1,20 +1,6 @@
 {
   "name": "chosen",
-  "description": "Chosen is a JavaScript plugin that makes long, unwieldy select boxes much more user-friendly. It is currently available in both jQuery and Prototype flavors.",
-  "version": "1.4.2",
-  "main": [
-    "chosen.jquery.min.js",
-    "chosen.css",
-    "chosen-sprite@2x.png",
-    "chosen-sprite.png"
-  ],
-  "license": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/harvesthq/chosen/blob/master/LICENSE.md"
-    }
-  ],
-  "ignore": [],
+  "description": "Chosen is a JavaScript plugin that makes select boxes user-friendly. It is currently available in both jQuery and Prototype flavors.",
   "keywords": [
     "select",
     "multiselect",
@@ -23,6 +9,8 @@
     "input",
     "ui"
   ],
+  "homepage": "https://harvesthq.github.io/chosen/",
+  "license": "https://github.com/harvesthq/chosen/blob/master/LICENSE.md",
   "authors": [
     {
       "name": "Patrick Filler",
@@ -41,23 +29,27 @@
       "url": "https://github.com/koenpunt"
     }
   ],
-  "homepage": "http://harvesthq.github.io/chosen/",
+  "dependencies": {},
+  "main": [
+    "chosen.jquery.js",
+    "chosen.css",
+    "chosen-sprite@2x.png",
+    "chosen-sprite.png"
+  ],
+  "ignore": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/harvesthq/chosen"
+    "url": "https://github.com/harvesthq/chosen.git"
   },
-  "dependencies": {
-    "jquery": ">=1.4.4"
-  },
-  "devDependencies": [],
-  "_release": "1.4.2",
+  "version": "1.7.0",
+  "_release": "1.7.0",
   "_resolution": {
     "type": "version",
-    "tag": "v1.4.2",
-    "commit": "c088eaae25211cb7512734695aec08ed2645a70b"
+    "tag": "v1.7.0",
+    "commit": "231ee0678a14743ed6d9fdf88bf73b68212f45c9"
   },
-  "_source": "git://github.com/harvesthq/bower-chosen.git",
-  "_target": "~1.4.2",
+  "_source": "https://github.com/harvesthq/bower-chosen.git",
+  "_target": "~1.7.0",
   "_originalSource": "chosen",
   "_direct": true
 }

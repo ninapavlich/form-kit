@@ -10,7 +10,32 @@ form{
         @include box-sizing(border-box);
     }
     position:relative;
-      
+    
+    /* clear button */
+    .input-clear{
+        display: none;
+
+        border:none;
+        @include hand-cursor();
+
+        position: relative;
+        left: calc( 100% - 3em);
+        top: -2.2em;
+        width: 3em;
+        height: 2.2em;
+        cursor: hand; 
+
+        &:hover, &:active, &:focus{
+            background:transparent;
+            color:rgba(0,0,0,0.5);
+            outline:none;
+        }
+    }
+    &.has-value{
+        .input-clear{
+            display: block;
+        }  
+    }
     
     textarea,
     input[type=text],
@@ -34,6 +59,7 @@ form{
     &.form-field-type-file .preview{
         margin-top: 0.5em;
         width: 100%;
+        display: block;
     }
     &.form-field.form-field-type-select-buttons label:first-child,
     &.form-field.form-field-type-select-multiple-buttons label:first-child{

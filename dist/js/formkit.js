@@ -6750,8 +6750,12 @@ window.ParsleyValidator.addValidator(
         initValidation: function(){
             // $(this.element).parsley();
             // console.log("initialize parsley")
-
-            $(this.element).garlic();
+            try{
+                $(this.element).garlic();    
+            }catch(error){
+                console.warn("Error initializing Garlic: "+error)
+            }
+            
         },
         // initTexts: function(){
         //     var texts = $("textarea, input[type=text]");
@@ -6882,7 +6886,8 @@ window.ParsleyValidator.addValidator(
                         this.debug("use buttons")
                     }else{
                         this.debug("use harvest widget")
-                        $(select).chosen({}); 
+                        var placeholder_text = $(select).attr('data-placeholder') || '';
+                        $(select).chosen({'placeholder_text_multiple': placeholder_text}); 
                     }
                 }else{
                     if(isImage){
@@ -6890,7 +6895,10 @@ window.ParsleyValidator.addValidator(
                         $(select).imagepicker();
                     }else{
                         this.debug("use harvest widget")
-                        $(select).chosen({}); 
+                        var placeholder_text = $(select).attr('data-placeholder') || '';
+                        $(select).chosen({
+                          'placeholder_text_single': placeholder_text
+                        }); 
                     }
                 }
             }
@@ -6916,7 +6924,6 @@ window.ParsleyValidator.addValidator(
         },
         initAjaxForm:function(){
             if($(this.element).hasClass('ajax')){
-                
                 var parent = this;
                 $(this.element).submit(function(event) {
                     event.preventDefault();
@@ -6956,16 +6963,53 @@ window.ParsleyValidator.addValidator(
 
         addListeners: function() {
             //bind events
+            var self = this;
+
+            $('.input-clear').bind('touch click', function(event){
+                $(event.target).parents('.form-field').find('input, select, textarea').attr('value', '').val('');
+                $(event.target).parents('.form-field').find('input, select, textarea').each(function( index, item ) {
+                    self.renderInputChange(item);
+                });
+            })
+            $('input, select, textarea').bind('change', function(event){
+                var input = event.target;
+                setTimeout(function(){
+                    self.renderInputChange(input);
+                }, 10);
+            })
+            $('input, select, textarea').each(function( index, item ) {
+                self.renderInputChange(item);
+            });
+
+            $(document).bind('keydown keypress keyup', function(event){
+                var input = event.target;
+                setTimeout(function(){
+                    self.renderInputChange(input);
+                }, 10);
+            });
         },
 
         removeListeners: function() {
             //unbind events           
+        },
+
+        renderInputChange: function(input){
+            console.log("INPUT CHANGE!")
+            var has_value = $(input).val() != "";
+            if(has_value){
+                $(input).parents('.form-field').addClass('has-value');
+            }else{
+                $(input).parents('.form-field').removeClass('has-value');
+            }
         },
         debug:function(message){
             // console.log(message);
         }
 
     };
+
+    FormKit.VERSION = '1.1';
+    console.log("FormKit.VERSION: "+FormKit.VERSION)
 
     $.fn[pluginName] = function ( options ) {
         return this.each(function () {
