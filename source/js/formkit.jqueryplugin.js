@@ -282,7 +282,7 @@
             $('input, select, textarea').each(function( index, item ) {
                 self.renderInputChange(item);
             });
-
+  
             $(document).bind('keydown keypress keyup', function(event){
                 var input = event.target;
                 setTimeout(function(){
@@ -296,7 +296,6 @@
         },
 
         renderInputChange: function(input){
-            console.log("INPUT CHANGE!")
             var has_value = $(input).val() != "";
             if(has_value){
                 $(input).parents('.form-field').addClass('has-value');
@@ -310,7 +309,7 @@
 
     };
 
-    FormKit.VERSION = '1.1';
+    FormKit.VERSION = '1.2';
     console.log("FormKit.VERSION: "+FormKit.VERSION)
 
     $.fn[pluginName] = function ( options ) {

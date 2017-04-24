@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 #this is a test
 setup(name = 'form-kit',
       description = 'All my favorite form enhancements in one place',
-      version = '1.1',
+      version = '1.2',
       url = 'https://github.com/ninapavlich/django-share-me-share-me',
       author = 'Nina Pavlich',
       author_email='nina@ninalp.com',
