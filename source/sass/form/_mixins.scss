@@ -53,11 +53,16 @@
   @include container(); 
 }
 @mixin button-disabled(){
-    border-color: $light_text_color;
+    
+    cursor: default;
+    border-color:$light_grey;
+    background-color: $light_grey;
+    color:$text_color;
 }
 @mixin button-focus(){
-    background-color:rgba(0,0,0,.6);
-    color:#fff;
+    background-color:$light_grey;
+    
+    outline:0;
 }
 @mixin button-active(){
     @include inverted-text();

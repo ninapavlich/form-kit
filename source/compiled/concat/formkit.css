@@ -504,8 +504,7 @@ button, a.button, input[type=button], input[type=submit] {
 }
 /* line 10, ../../sass/form/_buttons.scss */
 button:hover, button:focus, a.button:hover, a.button:focus, input[type=button]:hover, input[type=button]:focus, input[type=submit]:hover, input[type=submit]:focus {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  background-color: #e5e5e5;
   outline: 0;
 }
 /* line 14, ../../sass/form/_buttons.scss */
@@ -515,7 +514,6 @@ button:active, a.button:active, input[type=button]:active, input[type=submit]:ac
 }
 /* line 17, ../../sass/form/_buttons.scss */
 button:disabled, button.disabled, a.button:disabled, a.button.disabled, input[type=button]:disabled, input[type=button].disabled, input[type=submit]:disabled, input[type=submit].disabled {
-  border-color: #6f6e66;
   cursor: default;
   border-color: #e5e5e5;
   background-color: #e5e5e5;
@@ -681,7 +679,7 @@ form {
   border: 1px solid #474540;
   transition: all 200ms ease-out;
 }
-/* line 72, ../../sass/form/_mixins.scss */
+/* line 77, ../../sass/form/_mixins.scss */
 .form-field textarea:focus,
 .form-field input[type=text]:focus,
 .form-field input[type=email]:focus,
@@ -832,8 +830,8 @@ form {
 }
 /* line 228, ../../sass/form/_fields.scss */
 .form-field.form-field-type-boolean-toggle label span:hover, .form-field.form-field-type-boolean-toggle label span:focus, .form-field.form-field-type-select-buttons label span:hover, .form-field.form-field-type-select-buttons label span:focus, .form-field.form-field-type-select-multiple-buttons label span:hover, .form-field.form-field-type-select-multiple-buttons label span:focus {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  background-color: #e5e5e5;
+  outline: 0;
 }
 /* line 236, ../../sass/form/_fields.scss */
 .form-field.form-field-type-boolean-toggle label:first-child, .form-field.form-field-type-select-buttons label:first-child, .form-field.form-field-type-select-multiple-buttons label:first-child {
@@ -873,8 +871,8 @@ form {
 .form-field .tag-editor > li:hover .tag-editor-tag,
 .form-field .tag-editor > li:hover .tag-editor-delete, .form-field .tag-editor > li:focus .tag-editor-tag,
 .form-field .tag-editor > li:focus .tag-editor-delete {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  background-color: #e5e5e5;
+  outline: 0;
 }
 /* line 275, ../../sass/form/_fields.scss */
 .form-field .tag-editor > li input {
@@ -1015,8 +1013,8 @@ form {
 }
 /* line 348, ../../sass/form/_fields.scss */
 .form-field ul.thumbnails.image_picker_selector li .thumbnail:hover, .form-field ul.thumbnails.image_picker_selector li .thumbnail:focus {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  background-color: #e5e5e5;
+  outline: 0;
 }
 /* line 351, ../../sass/form/_fields.scss */
 .form-field ul.thumbnails.image_picker_selector li .thumbnail.selected, .form-field ul.thumbnails.image_picker_selector li .thumbnail:active {
@@ -1273,7 +1271,7 @@ form {
   background: transparent;
   border: 1px solid #474540;
 }
-/* line 72, ../../sass/form/_mixins.scss */
+/* line 77, ../../sass/form/_mixins.scss */
 .chosen-container-single .chosen-drop input:focus {
   border-color: #000000;
   outline: none;
