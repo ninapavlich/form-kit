@@ -18,9 +18,11 @@
     .help-text{
         @include small-text();
         color: $light_text_color;
+        font-weight: lighter;
     }
     
     label{
+        color:$text_color;
         margin:0px;
     }
 
@@ -43,6 +45,11 @@
         .secondary-label{
             display:block;
             margin-bottom:0.3em;
+        }
+    }
+    &.focused{
+        label{
+            color:$focused_color;
         }
     }
    

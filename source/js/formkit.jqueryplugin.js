@@ -38,8 +38,8 @@
             this.initRangeSliders();
             this.initDates();
             this.initSelects();  
-            this.initPlaceholderShims(); 
             this.initListWidget();
+            this.initClearWidget();
             
             $(this.element).inputPrefix();
             
@@ -103,28 +103,28 @@
             var minDate = $(input).attr('data-min-date');
 
             if(isDatePicker){
-                // console.log("use date picker")
-                $(input).datetimepicker({
-                    timepicker:false,
-                    format:'Y-m-d',
-                    minDate:minDate,
-                    maxDate:maxDate,
-                    startDate:startDate
-                });
+                console.log("use date picker")
+                // $(input).datetimepicker({
+                //     timepicker:false,
+                //     format:'Y-m-d',
+                //     minDate:minDate,
+                //     maxDate:maxDate,
+                //     startDate:startDate
+                // });
             }else if(isDateTimePicker){
-                // console.log("use date time picker")
-                $(input).datetimepicker({
-                    format:'Y-m-d H:i',
-                    minDate:minDate,
-                    maxDate:maxDate,
-                    startDate:startDate
-                });
+                console.log("use date time picker")
+                // $(input).datetimepicker({
+                //     format:'Y-m-d H:i',
+                //     minDate:minDate,
+                //     maxDate:maxDate,
+                //     startDate:startDate
+                // });
             }else if(isTimePicker){
-                // console.log("use time picker")
-                $(input).datetimepicker({
-                    datepicker:false,
-                    format:'H:i'
-                });
+                console.log("use time picker")
+                // $(input).datetimepicker({
+                //     datepicker:false,
+                //     format:'H:i'
+                // });
             }
         },
         initSelects: function(){
@@ -206,11 +206,6 @@
             }
             
         },
-        initPlaceholderShims: function(){
-            if(Modernizr.input.placeholder==false){
-                $(this.element).find('input, textarea').placeholder();
-            }
-        },
         initListWidget: function(){
             var inputs = $(this.element).find("input, textarea");
             var parent = this;
@@ -259,57 +254,38 @@
             }
             
         },
+
+        initClearWidget: function() {
+            // try{
+                $(this.element).inputClear();    
+            // }catch(error){
+            //     console.warn("Error with clear widget: "+error)
+            // }
+        },
+
+        
+
+        
         render: function() {
             //Update view
         },
 
         addListeners: function() {
-            //bind events
-            var self = this;
-
-            $('.input-clear').bind('touch click', function(event){
-                $(event.target).parents('.form-field').find('input, select, textarea').attr('value', '').val('');
-                $(event.target).parents('.form-field').find('input, select, textarea').each(function( index, item ) {
-                    self.renderInputChange(item);
-                });
-            })
-            $('input, select, textarea').bind('change', function(event){
-                var input = event.target;
-                setTimeout(function(){
-                    self.renderInputChange(input);
-                }, 10);
-            })
-            $('input, select, textarea').each(function( index, item ) {
-                self.renderInputChange(item);
-            });
-  
-            $(document).bind('keydown keypress keyup', function(event){
-                var input = event.target;
-                setTimeout(function(){
-                    self.renderInputChange(input);
-                }, 10);
-            });
+            
         },
 
         removeListeners: function() {
             //unbind events           
         },
 
-        renderInputChange: function(input){
-            var has_value = $(input).val() != "";
-            if(has_value){
-                $(input).parents('.form-field').addClass('has-value');
-            }else{
-                $(input).parents('.form-field').removeClass('has-value');
-            }
-        },
+        
         debug:function(message){
             // console.log(message);
         }
 
     };
 
-    FormKit.VERSION = '1.2';
+    FormKit.VERSION = '2.0';
     console.log("FormKit.VERSION: "+FormKit.VERSION)
 
     $.fn[pluginName] = function ( options ) {

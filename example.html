@@ -18,7 +18,7 @@
         <script src="dist/js/vendor/modernizr.js"></script>
 
         <style> 
-            html, body{
+            html, body, input{
                 margin:0;
                 padding:0;
                 font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
@@ -80,13 +80,12 @@
     $('form').formKit({});
     &lt;/script&gt;
         </code></pre>
-            <h1>Awwww yeah</h1>
+            <h1>FormKit</h1>
 
             <h2>Validation, Shims and Libs</h2>
             <ul class="libs">
                 <li><strong>Parsely JS</strong> http://parsleyjs.org/</li>
-                <li><strong>Garlic JS</strong> https://github.com/guillaumepotier/garlic.js</li>            
-                <li><strong>Placeholder Shim</strong> https://github.com/mathiasbynens/jquery-placeholder</li>                                     
+                <li><strong>Garlic JS</strong> https://github.com/guillaumepotier/garlic.js</li>                                             
             </ul>
 
             <h2>Widgets</h2>
@@ -94,32 +93,59 @@
                 <li><strong>Image Picker</strong> http://rvera.github.io/image-picker/</li>
                 <li><strong>Harvest Chosen</strong> http://harvesthq.github.io/chosen/</li>
                 <li><strong>Loudev Horizontal Multiselect</strong> http://loudev.com/</li>
-                <li><strong>XDan Date Time Picker</strong> https://github.com/xdan/datetimepicker</li>
+                <li><strong>Date Time Picker</strong> https://eonasdan.github.io/bootstrap-datetimepicker/</li>
                 <li><strong>Tag List</strong> https://maxfavilli.com/jquery-tag-manager</li>    
                 <li><strong>rangeslider.js Polyfill</strong> http://andreruffert.github.io/rangeslider.js/</li>
             </ul>
 
+            <br />
+            <br />
+            <h2>Buttons</h2>
+
+            <div class="">
+                <a href="#" class="button">Link class="button"</a><br><br>
+                <button><span>Button</span></button><br><br>
+                <input type="button" value="Input type=&quot;button&quot;"><br><br>
+                <input type="submit" value="Input type=&quot;submit&quot;"><br><br>
+                <button type="submit" value="Submit">Submit Button</button><br><br>
+            </div>
+
+                <div class="">
+                    <a href="#" class="button disabled">Disabled Link class="button"</a><br><br>
+                    <button class="disabled"><span>Disabled Button</span></button><br><br>
+                    <input class="disabled" type="button" value="Disabled Input type=&quot;button&quot;"><br><br>
+                    <input class="disabled" type="submit" value="Disabled Input type=&quot;submit&quot;"><br><br>
+                    <button class="disabled" type="submit" value="Submit">Disabled Submit Button</button><br><br>
+                </div>
+
+            <br />
+            <br />
+            <h2>Text Inputs</h2>
             <form action="/forms" enctype="multipart/form-data" method="post">
                 <input name='csrfmiddlewaretoken' type='hidden' value=''> <input id="id_form_schema" name="form_schema" type="hidden" value="1">
 
                 <div class="form-field form-field-type-text-area">
-                    <label for="id_form_field_contact-us-multi-line-text">Multi Line Text</label> <span class="secondary-label">with a clear button</span> 
-                    <textarea class="field-type-text-area" data-placeholder="enter text here!" id="id_form_field_contact-us-multi-line-text" maxlength="1000" name="form_field_contact-us-multi-line-text" placeholder="enter text here" data-inset-suffix="Wow!" ></textarea>
-                    <span class="help-text">do you need help?</span>
+                    <label for="id_form_field_contact-us-multi-line-text" class="focuser">Multi Line Text Field</label> <span class="secondary-label focuser">with a secondary label</span> 
+                    <textarea class="field-type-text-area" id="id_form_field_contact-us-multi-line-text" maxlength="1000" name="form_field_contact-us-multi-line-text" data-inset-suffix="Wow!" ></textarea>
+                    <span class="help-text">Line with help text</span>
                     
                 </div>
 
                 <div class="form-field form-field-type-text-area">
-                    <label for="id_form_field_contact-us-multi-line-text">Multi Line Text</label> <span class="secondary-label">with a secondary label</span> 
-                    <textarea class="field-type-text-area" data-placeholder="enter text here!" id="id_form_field_contact-us-multi-line-text" maxlength="1000" name="form_field_contact-us-multi-line-text" placeholder="enter text here" ></textarea> 
-                    
-
+                    <label for="id_form_field_contact-us-multi-line-text">Multi Line Text Field</label> <span class="secondary-label">with a secondary label</span> 
+                    <textarea class="field-type-text-area" id="id_form_field_contact-us-multi-line-text" maxlength="1000" name="form_field_contact-us-multi-line-text"></textarea> 
                     <button class="input-clear" type="button"><span class="fa fa-close"></span></button>
-                    
                 </div>
 
+                <div class="form-field form-field-type-text-area">
+                    <label for="id_form_field_contact-us-multi-line-text" class="focuser">Multi Line Text Field</label> <span class="secondary-label focuser">with a secondary label</span> 
+                    <textarea class="field-type-text-area" id="id_form_field_contact-us-multi-line-text" maxlength="1000" name="form_field_contact-us-multi-line-text"></textarea> 
+                    <button class="input-clear" type="button"><span class="fa fa-close"></span></button>
+                </div>
+
+
                 <div class="form-field form-field-type-text-field">
-                    <label for="id_form_field_contact-us-single-line-field">Single Line Field</label> <span class="secondary-label">secondary label here</span> <input class="field-type-text-field" data-placeholder="placeholder here!" id="id_form_field_contact-us-single-line-field" name="form_field_contact-us-single-line-field" placeholder="placeholder here" type="email" value="nina@ninalp.com">
+                    <label for="id_form_field_contact-us-single-line-field">Single Line Email Field</label> <span class="secondary-label">with a secondary label</span> <input class="field-type-text-field" id="id_form_field_contact-us-single-line-field" name="form_field_contact-us-single-line-field" placeholder="Placeholder text" type="email" >
 
                     <div class="icon prefix">
                         <div class="center-outer">
@@ -127,7 +153,7 @@
                                 <div class="center-inner"><span class="fa fa-envelope"></span></div>
                             </div>
                         </div>
-                    </div><span class="help-text">help text here</span>
+                    </div><span class="help-text">Line with help text</span>
                 </div>
 
                 <div class="form-field form-field-type-text-field">
@@ -136,8 +162,14 @@
                     <button class="input-clear" type="button"><span class="fa fa-close"></span></button>
                 </div>
 
+                <div class="form-field form-field-type-text-field">
+                    <label for="id_form_field_contact-us-single-line-field" class="focuser">Single Line Field</label> <span class="secondary-label focuser">with a clear button</span> <input class="field-type-text-field"  id="id_form_field_contact-us-single-line-field" name="form_field_contact-us-single-line-field"  type="email" value="">
+
+                    <button class="input-clear" type="button"><span class="fa fa-close"></span></button>
+                </div>
+
                 <div class="form-field form-field-type-date">
-                    <label for="id_form_field_contact-us-repeat-single-line-field">It's Your Birthday!</label> <input class="field-type-date" id="id_form_field_contact-us-repeat-single-line-field" name="form_field_contact-us-repeat-single-line-field" type="text" value="2015-05-01">
+                    <label for="id_form_field_contact-us-repeat-single-line-field">Date Field</label> <input class="field-type-date" id="id_form_field_contact-us-repeat-single-line-field" name="form_field_contact-us-repeat-single-line-field" type="date" value="2015-05-01">
 
                     <div class="icon suffix">
                         <div class="center-outer">
@@ -148,8 +180,54 @@
                     </div>
                 </div>
 
+                <div class="form-field form-field-type-text-field">
+                    <label for="id_form_field_contact-us-this-should-be-an-email-address">Email Address Email Field</label> <input class="field-type-text-field" id="id_form_field_contact-us-this-should-be-an-email-address" name="form_field_contact-us-this-should-be-an-email-address" type="email" value="">
+                </div>
+
+                <div class="form-field form-field-type-text-field">
+                    <label for="id_form_field_contact-us-this-should-be-a-url">URL Field</label> <input class="field-type-text-field" id="id_form_field_contact-us-this-should-be-a-url" name="form_field_contact-us-this-should-be-a-url" type="url" value="">
+                </div>
+
+                <div class="form-field form-field-type-text-field">
+                    <label for="id_form_field_contact-us-twitter-handle">Input with Prefix Field</label> <input class="field-type-text-field" data-inset-prefix="twitter @" id="id_form_field_contact-us-twitter-handle" name="form_field_contact-us-twitter-handle" type="text" value="">
+                </div>
+
+                <div class="form-field form-field-type-date">
+                    <label for="id_form_field_contact-us-testing-date">Date Field</label> <input class="field-type-date" id="id_form_field_contact-us-testing-date" name="form_field_contact-us-testing-date" type="date" value="2018-04-11">
+                </div>
+
+                <div class="form-field form-field-type-time">
+                    <label for="id_form_field_contact-us-time">Time Field</label> <input class="field-type-time" id="id_form_field_contact-us-time" name="form_field_contact-us-time" type="time" value="20:00">
+                </div>
+
+                <div class="form-field form-field-type-date-time">
+                    <label for="id_form_field_contact-us-date-and-time">Date and Time Field</label> <input class="field-type-date-time" id="id_form_field_contact-us-date-and-time" name="form_field_contact-us-date-and-time" type="datetime-local" value="2015-05-05 21:24">
+                </div>
+
+                <div class="form-field-row">
+                    <div class="form-field form-field-type-password">
+                        <label for="id_form_field_contact-us-password-field">Password Field</label> <input class="f
+                        ield-type-password" id="id_form_field_contact-us-password-field" name="form_field_contact-us-password-field" type="password" value="test">
+                    </div>
+                    <div class="form-field form-field-type-buttom">
+                        <input type="submit" value="Submit">
+                    </div>
+                </div>
+
+                <div class="form-field-row">
+                    <div class="form-field form-field-type-password">
+                        <label for="id_form_field_contact-us-password-field">Search Field</label> <input class="field-type-password" id="id_form_field_contact-us-password-field" name="form_field_contact-us-password-field" type="search" value="test">
+                        <button class="input-clear" type="button"><span class="fa fa-close"></span></button>
+                    </div>
+                    <div class="form-field form-field-type-buttom">
+                        <input type="submit" value="Submit">
+                    </div>
+                </div>
+
+                <br /><br />
+                <h2>Selection Options: Boolean</h2>
                 <div class="form-field form-field-type-boolean-checkboxes">
-                    <label for="id_form_field_contact-us-option"><input checked class="field-type-boolean-checkboxes" id="id_form_field_contact-us-option" name="form_field_contact-us-option" type="checkbox"> <span>Option?</span></label> <span class="secondary-label">secondary label</span> <span class="help-text">help text</span>
+                    <label for="id_form_field_contact-us-option"><input checked class="field-type-boolean-checkboxes" id="id_form_field_contact-us-option" name="form_field_contact-us-option" type="checkbox"> <span>Single Option</span></label> <span class="secondary-label">secondary label</span> <span class="help-text">help text</span>
                 </div>
 
                 <div class="form-field form-field-type-boolean-checkboxes">
@@ -160,10 +238,24 @@
                     <label for="id_form_field_contact-us-show-this-boolean-as-buttons"><input checked class="field-type-boolean-toggle" id="id_form_field_contact-us-show-this-boolean-as-buttons" name="form_field_contact-us-show-this-boolean-as-buttons" type="checkbox"> <span>Toggle Button</span></label>
                 </div>
 
+                <br /><br />
+                <h2>Selection Options: Select One Option</h2>
+                
+
+                <div class="form-field form-field-type-select-radio-buttons">
+                    <label for="id_form_field_contact-us-choose-one">Choose One Radio</label> <label for="form_field_contact-us-choose-one_Yes"><input class="field-type-select-radio-buttons" id="form_field_contact-us-choose-one_Yes" name="form_field_contact-us-choose-one" type="radio" value="Yes"> <span>Yes</span></label> <label for="form_field_contact-us-choose-one_No"><input checked class="field-type-select-radio-buttons" id="form_field_contact-us-choose-one_No" name="form_field_contact-us-choose-one" type="radio" value="No"> <span>No</span></label> <label for="form_field_contact-us-choose-one_Maybe"><input class="field-type-select-radio-buttons" id="form_field_contact-us-choose-one_Maybe" name="form_field_contact-us-choose-one" type="radio" value="Maybe"> <span>Maybe</span></label>
+                </div>
+
+                
+
+                <div class="form-field form-field-type-select-buttons">
+                    <label for="id_form_field_contact-us-choose-one-2">Choose One Button</label> <label for="form_field_contact-us-choose-one-2_Yes"><input checked class="field-type-select-buttons" id="form_field_contact-us-choose-one-2_Yes" name="form_field_contact-us-choose-one-2" type="radio" value="Yes"> <span>Yes</span></label> <label for="form_field_contact-us-choose-one-2_No"><input class="field-type-select-buttons" id="form_field_contact-us-choose-one-2_No" name="form_field_contact-us-choose-one-2" type="radio" value="No"> <span>No</span></label> <label for="form_field_contact-us-choose-one-2_Maybe"><input class="field-type-select-buttons" id="form_field_contact-us-choose-one-2_Maybe" name="form_field_contact-us-choose-one-2" type="radio" value="Maybe"> <span>Maybe</span></label>
+                </div>
+
                 <div class="form-field form-field-type-select-dropdown">
                     <label for="id_form_field_contact-us-choose-an-item">Choose an item</label> <select class="field-type-select-dropdown" id="id_form_field_contact-us-choose-an-item" name="form_field_contact-us-choose-an-item" >
                         <option value="">
-                            Choose an item
+                            Choose an item...
                         </option>
 
                         <option value="Yes">
@@ -180,30 +272,34 @@
                     </select>
                 </div>
 
-                <div class="form-field form-field-type-select-radio-buttons">
-                    <label for="id_form_field_contact-us-choose-one">Choose One Radio</label> <label for="form_field_contact-us-choose-one_Yes"><input class="field-type-select-radio-buttons" id="form_field_contact-us-choose-one_Yes" name="form_field_contact-us-choose-one" type="radio" value="Yes"> <span>Yes</span></label> <label for="form_field_contact-us-choose-one_No"><input checked class="field-type-select-radio-buttons" id="form_field_contact-us-choose-one_No" name="form_field_contact-us-choose-one" type="radio" value="No"> <span>No</span></label> <label for="form_field_contact-us-choose-one_Maybe"><input class="field-type-select-radio-buttons" id="form_field_contact-us-choose-one_Maybe" name="form_field_contact-us-choose-one" type="radio" value="Maybe"> <span>Maybe</span></label>
-                </div>
+                
 
-                <div class="form-field form-field-type-select-buttons">
-                    <label for="id_form_field_contact-us-choose-one-2">Choose One Button</label> <label for="form_field_contact-us-choose-one-2_Yes"><input checked class="field-type-select-buttons" id="form_field_contact-us-choose-one-2_Yes" name="form_field_contact-us-choose-one-2" type="radio" value="Yes"> <span>Yes</span></label> <label for="form_field_contact-us-choose-one-2_No"><input class="field-type-select-buttons" id="form_field_contact-us-choose-one-2_No" name="form_field_contact-us-choose-one-2" type="radio" value="No"> <span>No</span></label> <label for="form_field_contact-us-choose-one-2_Maybe"><input class="field-type-select-buttons" id="form_field_contact-us-choose-one-2_Maybe" name="form_field_contact-us-choose-one-2" type="radio" value="Maybe"> <span>Maybe</span></label>
-                </div>
+                
 
                 <div class="form-field form-field-type-select-image">
-                    <label for="id_form_field_contact-us-pick-a-kitten">Pick-a-kitten</label> <select class="field-type-select-image" id="id_form_field_contact-us-pick-a-kitten" name="form_field_contact-us-pick-a-kitten">
-                        <option data-img-src="http://placekitten.com/180/200" value="http://placekitten.com/180/200">
-                            http://placekitten.com/180/200
+                    <label for="id_form_field_contact-us-pick-a-kitten">Select an image</label> <select class="field-type-select-image" id="id_form_field_contact-us-pick-a-kitten" name="form_field_contact-us-pick-a-kitten">
+                        <option data-img-src="https://unsplash.it/150/150" value="https://unsplash.it/150/150">
+                            https://unsplash.it/150/150
                         </option>
 
-                        <option data-img-src=" http://placekitten.com/480/200" value=" http://placekitten.com/480/200">
-                            http://placekitten.com/480/200
+                        <option data-img-src="https://unsplash.it/170/150" value="https://unsplash.it/170/150">
+                            https://unsplash.it/170/150
                         </option>
 
-                        <option data-img-src=" http://placekitten.com/130/200" value=" http://placekitten.com/130/200">
-                            http://placekitten.com/130/200
+                        <option data-img-src="https://unsplash.it/180/150" value="https://unsplash.it/180/150">
+                            https://unsplash.it/180/150
                         </option>
 
-                        <option data-img-src=" http://placekitten.com/270/200" selected value=" http://placekitten.com/270/200">
-                            http://placekitten.com/270/200
+                        <option data-img-src="https://unsplash.it/175/150" value="https://unsplash.it/175/150">
+                            https://unsplash.it/175/150
+                        </option>
+
+                        <option data-img-src="https://unsplash.it/145/150" value="https://unsplash.it/145/150">
+                            https://unsplash.it/145/150
+                        </option>
+
+                        <option data-img-src="https://unsplash.it/160/150" value="https://unsplash.it/160/150">
+                            https://unsplash.it/160/150
                         </option>
                     </select>
                 </div>
@@ -212,36 +308,15 @@
                     <label for="id_form_field_contact-us-basic-file-field">Basic File Field</label> <input class="field-type-file" data-file-path="//s3.amazonaws.com/chrisharburg-dev/media/" id="id_form_field_contact-us-basic-file-field" name="form_field_contact-us-basic-file-field" type="file" value="">
                 </div>
 
-                <div class="form-field form-field-type-text-field">
-                    <label for="id_form_field_contact-us-this-should-be-an-email-address">This should be an email address</label> <input class="field-type-text-field" id="id_form_field_contact-us-this-should-be-an-email-address" name="form_field_contact-us-this-should-be-an-email-address" type="email" value="">
-                </div>
-
-                <div class="form-field form-field-type-text-field">
-                    <label for="id_form_field_contact-us-this-should-be-a-url">This should be a URL</label> <input class="field-type-text-field" id="id_form_field_contact-us-this-should-be-a-url" name="form_field_contact-us-this-should-be-a-url" type="url" value="">
-                </div>
-
-                <div class="form-field form-field-type-text-field">
-                    <label for="id_form_field_contact-us-twitter-handle">Twitter Handle</label> <input class="field-type-text-field" data-inset-prefix="twitter @" id="id_form_field_contact-us-twitter-handle" name="form_field_contact-us-twitter-handle" type="text" value="">
-                </div>
-
-                <div class="form-field form-field-type-date">
-                    <label for="id_form_field_contact-us-testing-date">Testing Date</label> <input class="field-type-date" id="id_form_field_contact-us-testing-date" name="form_field_contact-us-testing-date" type="text" value="2018-04-11">
-                </div>
-
-                <div class="form-field form-field-type-time">
-                    <label for="id_form_field_contact-us-time">Time</label> <input class="field-type-time" id="id_form_field_contact-us-time" name="form_field_contact-us-time" type="text" value="20:00">
-                </div>
-
-                <div class="form-field form-field-type-date-time">
-                    <label for="id_form_field_contact-us-date-and-time">Date and time</label> <input class="field-type-date-time" id="id_form_field_contact-us-date-and-time" name="form_field_contact-us-date-and-time" type="text" value="2015-05-05 21:24">
-                </div>
+                <br /><br />
+                <h2>Selection Options: Select Multiple</h2>
 
                 <div class="form-field form-field-type-select-multiple-checkboxes">
                     <label for="id_form_field_contact-us-select-multiple-checkboxes">Select Multiple checkboxes!</label> <label for="form_field_contact-us-select-multiple-checkboxes_This"><input checked class="field-type-select-multiple-checkboxes" id="form_field_contact-us-select-multiple-checkboxes_This" name="form_field_contact-us-select-multiple-checkboxes" type="checkbox" value="This"> <span>This</span></label> <label for="form_field_contact-us-select-multiple-checkboxes_That"><input checked class="field-type-select-multiple-checkboxes" id="form_field_contact-us-select-multiple-checkboxes_That" name="form_field_contact-us-select-multiple-checkboxes" type="checkbox" value="That"> <span>That</span></label> <label for="form_field_contact-us-select-multiple-checkboxes_Other"><input checked class="field-type-select-multiple-checkboxes" id="form_field_contact-us-select-multiple-checkboxes_Other" name="form_field_contact-us-select-multiple-checkboxes" type="checkbox" value="Other"> <span>Other</span></label>
                 </div>
 
                 <div class="form-field form-field-type-select-multiple-autosuggest">
-                    <label for="id_form_field_contact-us-select-multiple-autosuggest">Select Multiple autosuggest!</label> <select class="field-type-select-multiple-autosuggest" id="id_form_field_contact-us-select-multiple-autosuggest" multiple name="form_field_contact-us-select-multiple-autosuggest" data-placeholder="Choose multiple items!">
+                    <label for="id_form_field_contact-us-select-multiple-autosuggest">Select Multiple autosuggest!</label> <select class="field-type-select-multiple-autosuggest" id="id_form_field_contact-us-select-multiple-autosuggest" multiple name="form_field_contact-us-select-multiple-autosuggest" >
                         <option selected value="This">
                             This
                         </option>
@@ -273,25 +348,33 @@
                 </div>
 
                 <div class="form-field form-field-type-select-multiple-buttons">
-                    <label for="id_form_field_contact-us-select-multiple-buttons">Select Multiple Buttons!</label> <span class="secondary-label">check each</span> <label for="form_field_contact-us-select-multiple-buttons_This"><input checked class="field-type-select-multiple-buttons" id="form_field_contact-us-select-multiple-buttons_This" name="form_field_contact-us-select-multiple-buttons" type="checkbox" value="This"> <span>This</span></label> <label for="form_field_contact-us-select-multiple-buttons_That"><input checked class="field-type-select-multiple-buttons" id="form_field_contact-us-select-multiple-buttons_That" name="form_field_contact-us-select-multiple-buttons" type="checkbox" value="That"> <span>That</span></label> <label for="form_field_contact-us-select-multiple-buttons_Other"><input checked class="field-type-select-multiple-buttons" id="form_field_contact-us-select-multiple-buttons_Other" name="form_field_contact-us-select-multiple-buttons" type="checkbox" value="Other"> <span>Other</span></label>
+                    <label for="id_form_field_contact-us-select-multiple-buttons">Select One or More Buttons</label> <span class="secondary-label">check each</span> <label for="form_field_contact-us-select-multiple-buttons_This"><input checked class="field-type-select-multiple-buttons" id="form_field_contact-us-select-multiple-buttons_This" name="form_field_contact-us-select-multiple-buttons" type="checkbox" value="This"> <span>This</span></label> <label for="form_field_contact-us-select-multiple-buttons_That"><input checked class="field-type-select-multiple-buttons" id="form_field_contact-us-select-multiple-buttons_That" name="form_field_contact-us-select-multiple-buttons" type="checkbox" value="That"> <span>That</span></label> <label for="form_field_contact-us-select-multiple-buttons_Other"><input checked class="field-type-select-multiple-buttons" id="form_field_contact-us-select-multiple-buttons_Other" name="form_field_contact-us-select-multiple-buttons" type="checkbox" value="Other"> <span>Other</span></label>
                 </div>
 
                 <div class="form-field form-field-type-select-multiple-images">
-                    <label for="id_form_field_contact-us-pick-some-kittens">Pick some kittens!</label> <select class="field-type-select-multiple-images" id="id_form_field_contact-us-pick-some-kittens" multiple name="form_field_contact-us-pick-some-kittens">
-                        <option data-img-src="http://placekitten.com/180/200" value="http://placekitten.com/180/200">
-                            http://placekitten.com/180/200
+                    <label for="id_form_field_contact-us-pick-some-kittens">Pick one or more kittens</label> <select class="field-type-select-multiple-images" id="id_form_field_contact-us-pick-some-kittens" multiple name="form_field_contact-us-pick-some-kittens">
+                        <option data-img-src="https://unsplash.it/150/150" value="https://unsplash.it/150/150">
+                            https://unsplash.it/150/150
                         </option>
 
-                        <option data-img-src=" http://placekitten.com/480/200" selected value=" http://placekitten.com/480/200">
-                            http://placekitten.com/480/200
+                        <option data-img-src="https://unsplash.it/170/150" value="https://unsplash.it/170/150">
+                            https://unsplash.it/170/150
                         </option>
 
-                        <option data-img-src=" http://placekitten.com/130/200" value=" http://placekitten.com/130/200">
-                            http://placekitten.com/130/200
+                        <option data-img-src="https://unsplash.it/180/150" value="https://unsplash.it/180/150">
+                            https://unsplash.it/180/150
                         </option>
 
-                        <option data-img-src=" http://placekitten.com/270/200" value=" http://placekitten.com/270/200">
-                            http://placekitten.com/270/200
+                        <option data-img-src="https://unsplash.it/175/150" value="https://unsplash.it/175/150">
+                            https://unsplash.it/175/150
+                        </option>
+
+                        <option data-img-src="https://unsplash.it/145/150" value="https://unsplash.it/145/150">
+                            https://unsplash.it/145/150
+                        </option>
+
+                        <option data-img-src="https://unsplash.it/160/150" value="https://unsplash.it/160/150">
+                            https://unsplash.it/160/150
                         </option>
                     </select>
                 </div>
@@ -299,6 +382,10 @@
                 <div class="form-field form-field-type-comma-separated-list">
                     <label for="id_form_field_contact-us-enter-a-list-of-items">Enter a list of items</label> <input class="field-type-comma-separated-list" id="id_form_field_contact-us-enter-a-list-of-items" name="form_field_contact-us-enter-a-list-of-items" type="text" value="Test, List"> <span class="help-text">Use commas to separate items</span>
                 </div>
+
+                <br />
+                <br />
+                <h2>Ranges</h2>
 
                 <div class="form-field form-field-type-score">
                     <label for="id_form_field_contact-us-score-field">Score Field</label> <input class="field-type-score" id="id_form_field_contact-us-score-field" maxlength="10" name="form_field_contact-us-score-field" type="number" value="47">
@@ -312,9 +399,7 @@
                     <label for="id_form_field_contact-us-slider-value">Slider Value</label> <input class="field-type-number-slider" id="id_form_field_contact-us-slider-value" maxlength="99" name="form_field_contact-us-slider-value" type="number" value="4">
                 </div>
 
-                <div class="form-field form-field-type-password">
-                    <label for="id_form_field_contact-us-password-field">Password Field</label> <input class="field-type-password" id="id_form_field_contact-us-password-field" name="form_field_contact-us-password-field" type="password" value="test">
-                </div><input type="submit" value="Submit">
+                
             </form>
         </div>
 

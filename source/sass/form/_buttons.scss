@@ -1,12 +1,24 @@
 button, a.button, input[type=button], input[type=submit]{
     @include button();
+    @include hand-cursor();
+    text-decoration: none;
+    font-weight: normal;
+    font-weight: 1rem;
+    line-height: normal;
+    letter-spacing: normal;
+
     &:hover, &:focus{
         @include button-focus();
+        outline:0;
     }
     &:active{
         @include button-active();
     }
-    &:disabled{
+    &:disabled, &.disabled{
         @include button-disabled();
+        cursor: default;
+        border-color:$light_grey;
+        background-color: $light_grey;
+        color:$text_color;
     }
 }

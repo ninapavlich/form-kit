@@ -4,12 +4,22 @@ form{
 .form-field{
     display:block;
     margin: 1em 0;
+    position:relative;
+    font-family: sans-serif;
     @include micro-clearfix();
     @include box-sizing(border-box);
     *{
         @include box-sizing(border-box);
     }
-    position:relative;
+
+    ::-ms-clear,
+    ::-webkit-search-decoration,
+    ::-webkit-search-cancel-button,
+    ::-webkit-search-results-button,
+    ::-webkit-search-results-decoration {
+        display: none;
+    }
+
     
     /* clear button */
     .input-clear{
@@ -18,9 +28,9 @@ form{
         border:none;
         @include hand-cursor();
 
-        position: relative;
+        position: absolute;
+        top: calc( 50% - 0.25em );
         left: calc( 100% - 3em);
-        top: -2.2em;
         width: 3em;
         height: 2.2em;
         cursor: hand; 
@@ -35,16 +45,41 @@ form{
         .input-clear{
             display: block;
         }  
+        .focuser{
+            top: 0;
+            left: 0;
+        }
     }
-    
+
+    .focuser{
+        position: relative;
+        @include default-transition;
+        top: 2.25em;
+        left: 0.75em;
+
+        &.has-value{
+            top: 0;
+            left: 0;
+        }
+    }
+
+
     textarea,
     input[type=text],
     input[type=email],
     input[type=url],
     input[type=number],
     input[type=password],
+    input[type=date],
+    input[type=datetime],
+    input[type=datetime-local],
+    input[type=time],
+    input[type=search],
     .tag-editor{
         @include text-input();
+        @include default-transition;
+
+        
     }
     textarea{
         height:100px;
@@ -61,6 +96,8 @@ form{
         width: 100%;
         display: block;
     }
+
+
     &.form-field.form-field-type-select-buttons label:first-child,
     &.form-field.form-field-type-select-multiple-buttons label:first-child{
         
@@ -75,16 +112,79 @@ form{
         }
     }
 
-    .form-field-type-select-buttons input,
-    .form-field-type-select-multiple-buttons input,
+    &.form-field-type-select-buttons input,
+    &.form-field-type-select-multiple-buttons input,
     input[type=checkbox],
     input[type=radio]{
         width:auto;
     }
-    .form-field-type-select-multiple-buttons{
+    &.form-field-type-select-multiple-buttons{
         .secondary-label{
             displayy:block;
             margin-bottom:0.5em;
+        }
+    }
+
+    &.form-field-type-select-multiple-checkboxes,
+    &.form-field-type-select-radio-buttons,
+    &.form-field-type-boolean-checkboxes{
+        
+        label{
+            @include hand-cursor();
+            position: relative;
+
+            span{
+                margin-left: 0.5em;
+            }
+        }
+        input{
+            opacity: 0;
+        }
+
+        input + span:before{
+            content:"";
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            top: 0;
+            left: 0;
+            border:1px solid $text_color;
+
+        }
+        input:checked + span:before{
+            border-color:$focused_color;
+            background-color:$text_color;
+        }
+    }
+
+    &.form-field-type-select-radio-buttons{
+        input + span:before{
+            border-radius:50%;
+        }
+    }
+
+    &.form-field-type-file{
+        label{
+            @include hand-cursor();
+            position: relative;
+
+            span{
+                margin-left: 0.5em;
+            }
+        }
+        input{
+            opacity: 0.5;
+        }
+
+        input + span:before{
+            content:"";
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            top: 0;
+            left: 0;
+            border:1px solid $text_color;
+
         }
     }
     
@@ -176,7 +276,7 @@ form{
                 padding:0px;
                 margin:0px;
                 border:0px;
-                font-size:14px;
+                font-size:1rem;
             }
         }
         .tag-editor-tag{
@@ -262,7 +362,7 @@ form{
     .rangeslider{
         margin-top:0.5em;
         .rangeslider__fill{
-            background:#474540;
+            background: $text_color;
         }
     }
     
@@ -307,7 +407,58 @@ form{
             right: 1px;
             padding:0 10px 0 15px;
         }
+        
     }
+
+    &.focused {
+        .focuser{
+            top: 0;
+            left: 0;
+        }
+        textarea,
+        input[type=text],
+        input[type=email],
+        input[type=url],
+        input[type=number],
+        input[type=password],
+        input[type=date],
+        input[type=datetime],
+        input[type=datetime-local],
+        input[type=time],
+        input[type=search],
+        .tag-editor{
+            border-color:$focused_color;
+        }
+        .icon{
+            border-color:$focused_color;
+        }
+    }
+}
+
+.form-field-row{
+    @include micro-clearfix();
+    margin: 1em 0;
+
+    
+    /*align-items: flex-end; 
+    display: flex; 
+    justify-content: center; */
+
+   
+    @media screen and (min-width: $breakpoint) {
+        display: table;
+        width: 100%;
+        .form-field{
+            display:table-cell;
+            vertical-align: bottom;
+            padding-left:1em;
+
+            &:first-child{
+                padding-left:0;
+            }
+        }
+    }
+    
 }
 
 /* Date Picker reset */
@@ -488,3 +639,4 @@ form{
         border-color: $text_color;
     }
 }
+

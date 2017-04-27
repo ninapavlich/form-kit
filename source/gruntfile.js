@@ -129,15 +129,27 @@ module.exports = function(grunt) {
                         dest: 'js/vendor/',
                         expand: true
                     },
+                    // {
+                    //     cwd: 'bower_components/datetimepicker/',
+                    //     src: 'jquery.datetimepicker.css',
+                    //     dest: 'compiled/compass/',
+                    //     expand: true
+                    // },
+                    // {
+                    //     cwd: 'bower_components/datetimepicker/',
+                    //     src: 'jquery.datetimepicker.js',
+                    //     dest: 'js/vendor/',
+                    //     expand: true
+                    // },
                     {
-                        cwd: 'bower_components/datetimepicker/',
-                        src: 'jquery.datetimepicker.css',
+                        cwd: 'bower_components/bootstrap-datetimepicker/build/css/',
+                        src: 'bootstrap-datetimepicker.min.css',
                         dest: 'compiled/compass/',
                         expand: true
                     },
                     {
-                        cwd: 'bower_components/datetimepicker/',
-                        src: 'jquery.datetimepicker.js',
+                        cwd: 'bower_components/bootstrap-datetimepicker/build/js/',
+                        src: 'bootstrap-datetimepicker.min.js',
                         dest: 'js/vendor/',
                         expand: true
                     },
@@ -182,12 +194,6 @@ module.exports = function(grunt) {
                         cwd: 'bower_components/jquery-tag-editor/',
                         src: 'jquery.tag-editor.css',
                         dest: 'compiled/compass/',
-                        expand: true
-                    },
-                    {
-                        cwd: 'bower_components/jquery-placeholder/',
-                        src: 'jquery.placeholder.js',
-                        dest: 'js/vendor/',
                         expand: true
                     }
                 ]
