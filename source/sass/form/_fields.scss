@@ -1,6 +1,7 @@
 form{
     @include box-sizing(border-box);
 }
+
 .form-field{
     display:block;
     margin: 1em 0;
@@ -10,14 +11,6 @@ form{
     @include box-sizing(border-box);
     *{
         @include box-sizing(border-box);
-    }
-
-    ::-ms-clear,
-    ::-webkit-search-decoration,
-    ::-webkit-search-cancel-button,
-    ::-webkit-search-results-button,
-    ::-webkit-search-results-decoration {
-        display: none;
     }
 
     
@@ -144,8 +137,8 @@ form{
         input + span:before{
             content:"";
             position: absolute;
-            width: 1rem;
-            height: 1rem;
+            width: 0.9rem;
+            height: 0.9rem;
             top: 0;
             left: 0;
             border:1px solid $text_color;
@@ -169,23 +162,26 @@ form{
             position: relative;
 
             span{
-                margin-left: 0.5em;
+                @include button();
+                display: inline-block;
             }
         }
         input{
-            opacity: 0.5;
-        }
-
-        input + span:before{
-            content:"";
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
             position: absolute;
-            width: 1rem;
-            height: 1rem;
-            top: 0;
-            left: 0;
-            border:1px solid $text_color;
-
+            z-index: -1;
         }
+
+        &.has-value{
+            label{
+                @include button-active();
+            }
+        }
+
+       
     }
     
     &.form-field-type-select-multiple-autosuggest,
@@ -587,6 +583,7 @@ form{
                     position: static;
                     height: auto;
                     width: auto;
+                    padding-bottom: 0.4em;
                     &:before{
                         content: "\f00d";
                     }
@@ -640,3 +637,10 @@ form{
     }
 }
 
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}

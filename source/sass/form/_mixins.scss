@@ -60,7 +60,9 @@
     color:$text_color;
 }
 @mixin button-focus(){
-    background-color:$light_grey;
+    background-color:$text_color;
+    color:$light_grey;
+
     
     outline:0;
 }
@@ -85,14 +87,14 @@
   @include small-text();
   @include border-radius(0);
 
-  padding: 0.25em 0.25em 0.25em 0.5em;
+  padding: 0.2em 0.25em 0.3em 0.5em;
   border-right:0px;
 }
 @mixin tag-delete(){
   @include small-text();
   background: transparent;
   border: 1px solid $text_color;
-  padding: 0.25em 0.5em 0.25em 0.25em;
+  padding: 0.2em 0.5em 0.3em 0.25em;
   border-left:0px;
 }
 @mixin hand-cursor(){
