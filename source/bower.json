@@ -1,0 +1,30 @@
+{
+  "name": "source",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ninapavlich/form-kit",
+  "authors": [
+    "Nina Pavlich <nina@ninalp.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-datetimepicker": "~0.0.11",
+    "chosen": "~1.7.0",
+    "datetimepicker": "https://github.com/xdan/datetimepicker.git#2.4.3",
+    "garlicjs": "~1.2.4",
+    "image-picker": "https://github.com/rvera/image-picker.git#0.2.4",
+    "jquery-placeholder": "~2.1.1",
+    "jquery-tag-editor": "https://github.com/Pixabay/jQuery-tagEditor.git#1.0.14",
+    "jquery-ui": "~1.11.4",
+    "multiselect": "https://github.com/lou/multi-select.git#0.9.12",
+    "parsleyjs": "~2.0.7",
+    "rangeslider.js": "~1.2.1"
+  }
+}

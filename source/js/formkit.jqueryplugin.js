@@ -11,6 +11,7 @@
             imageWidgetSelector: "option[data-img-src]",
             horizontalSelector:"field-type-select-multiple-horizontal",
             buttonSelector: "field-type-select-multiple-buttons",
+            selectHasClearSelector: "has-clear",
             datePickerSelector:"field-type-date",
             dateTimePickerSelector:"field-type-date-time",
             timePickerSelector:"field-type-time",
@@ -103,7 +104,7 @@
             var minDate = $(input).attr('data-min-date');
 
             if(isDatePicker){
-                console.log("use date picker")
+                // console.log("use date picker")
                 // $(input).datetimepicker({
                 //     timepicker:false,
                 //     format:'Y-m-d',
@@ -112,7 +113,7 @@
                 //     startDate:startDate
                 // });
             }else if(isDateTimePicker){
-                console.log("use date time picker")
+                // console.log("use date time picker")
                 // $(input).datetimepicker({
                 //     format:'Y-m-d H:i',
                 //     minDate:minDate,
@@ -120,7 +121,7 @@
                 //     startDate:startDate
                 // });
             }else if(isTimePicker){
-                console.log("use time picker")
+                // console.log("use time picker")
                 // $(input).datetimepicker({
                 //     datepicker:false,
                 //     format:'H:i'
@@ -164,8 +165,15 @@
             var isImage = (typeof dataImgSrc !== typeof undefined && dataImgSrc !== false && dataImgSrc.length != 0);
             var isHorizontal = $(select).hasClass(this.options.horizontalSelector);
             var isButtons = $(select).hasClass(this.options.buttonSelector);
-            var isTouch = $(".touch").length >= 1;            
-            
+            var isTouch = $(".touch").length >= 1;  
+            var allowDeselect = $(select).hasClass(this.options.selectHasClearSelector);
+
+   
+            var minItems = $(select).attr('data-search-min');
+            var totalItems = $(select).find('option').length;
+            if(totalItems < minItems){
+                $(select).addClass('search-disabled');
+            }
             // var hasEnoughItems = $(select).find('option').size() > 15;
 
             if(isTouch){
@@ -194,12 +202,13 @@
                 }else{
                     if(isImage){
                         this.debug("use image select widget")
-                        $(select).imagepicker();
+                        $(select).imagepicker({});
                     }else{
                         this.debug("use harvest widget")
                         var placeholder_text = $(select).attr('data-placeholder') || '';
                         $(select).chosen({
-                          'placeholder_text_single': placeholder_text
+                          'placeholder_text_single': placeholder_text,
+                          'allow_single_deselect':allowDeselect
                         }); 
                     }
                 }

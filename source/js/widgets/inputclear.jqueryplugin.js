@@ -42,8 +42,10 @@
                     self.renderInputChange(input);
                 }, 10);
             })
-            $(this.options.parentSelector).find('input, select, textarea').each(function( index, item ) {
+            //'input, select, textarea'
+            $(this.options.parentSelector).find('select').each(function( index, item ) {
                 self.renderInputChange(item);
+                
             });
   
             $(document).bind('keydown keypress keyup', function(event){
@@ -67,6 +69,7 @@
         },
         renderInputChange: function(input){
             var has_value = $(input).val() != "";
+            
             if(has_value){
                 $(input).parents('.form-field').addClass('has-value');
             }else{
