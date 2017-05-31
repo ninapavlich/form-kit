@@ -6328,6 +6328,11 @@ window.ParsleyValidator.addValidator(
                         $(select).imagepicker({});
                     }else{
                         this.debug("use harvest widget")
+
+                        if(allowDeselect==true){
+                            $(select).attr('data-placeholder', $(select).find("option:first-child").val())
+                            $(select).find("option:first-child").text("");
+                        }
                         var placeholder_text = $(select).attr('data-placeholder') || '';
                         $(select).chosen({
                           'placeholder_text_single': placeholder_text,
